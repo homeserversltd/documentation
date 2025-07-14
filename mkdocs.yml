@@ -1,0 +1,79 @@
+site_name: Home Server Documentation
+
+nav:
+  - Home: index.md
+  - First Steps:
+      - Physical Setup: setup/setup-physical.md
+      - Network Access: setup/setup-network.md
+      - Admin Authentication: setup/setup-admin.md
+      - Security Configuration: setup/setup-security.md
+      - System Verification: setup/setup-verification.md
+      - Ongoing Management: setup/setup-management.md
+  - Developers:
+      - Overview: developers/index.md
+      - Platform Configuration: developers/homeserver.json.md
+      - SMB Development Workflow: developers/smb-development.md
+  - Certificates:
+      - Overview: certificates/index.md
+      - Certificate Renewal: certificates/renewal.md
+      - Installation & Troubleshooting: certificates/troubleshooting.md
+  - Services:
+      - Jellyfin: services/jellyfin.md
+      - Vaultwarden: services/vaultwarden.md
+      - Tailscale: services/tailscale.md
+      - Navidrome: services/navidrome.md
+      - Transmission: services/transmission.md
+      - Gogs: services/gogs.md
+      - File Browser: services/filebrowser.md
+      - Calibre Web: services/calibreweb.md
+      - Piwigo: services/piwigo.md
+      - Yarr: services/yarr.md
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - navigation.tabs
+    - navigation.tabs.sticky
+copyright: "Licensed under Apache License, Version 2.0 with Commons Clause."
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/homeserversltd/updates
+      name: GitHub
+    - icon: fontawesome/solid/globe
+      link: https://homeservers.ltd
+      name: Website
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - footnotes
+  - toc:
+      permalink: true
+
+# Development server settings
+dev_addr: 127.0.0.1:8005 
