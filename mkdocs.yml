@@ -2,32 +2,64 @@ site_name: Home Server Documentation
 
 nav:
   - Home: index.md
-  - First Steps:
-      - Physical Setup: setup/setup-physical.md
-      - Network Access: setup/setup-network.md
-      - Admin Authentication: setup/setup-admin.md
-      - Security Configuration: setup/setup-security.md
-      - System Verification: setup/setup-verification.md
-      - Ongoing Management: setup/setup-management.md
-  - Developers:
-      - Overview: developers/index.md
-      - Platform Configuration: developers/homeserver.json.md
-      - SMB Development Workflow: developers/smb-development.md
-  - Certificates:
-      - Overview: certificates/index.md
+  - System Administration:
+      - Getting Started:
+          - Physical Setup: setup/setup-physical.md
+          - Network Access: setup/setup-network.md
+          - Admin Authentication: setup/setup-admin.md
+          - Security Configuration: setup/setup-security.md
+          - System Verification: setup/setup-verification.md
+          - Ongoing Management: setup/setup-management.md
+      - Network Management:
+          - Basic SSH Commands: admin/basic-ssh-commands.md
+          - Firewall Configuration: admin/firewall-config.md
+          - Network Troubleshooting: admin/network-troubleshooting.md
+          - VPN Setup: admin/vpn-setup.md
+      - Storage & Drives:
+          - Drive Management: admin/drive-management.md
+          - NAS Configuration: admin/nas-config.md
+          - Backup Strategies: admin/backup-strategies.md
+          - Encryption Setup: admin/encryption-setup.md
+      - System Maintenance:
+          - Updates & Upgrades: admin/updates-upgrades.md
+          - Log Analysis: admin/log-analysis.md
+          - Performance Monitoring: admin/performance-monitoring.md
+          - Disaster Recovery: admin/disaster-recovery.md
+  - Service Documentation:
+      - Media Services:
+          - Jellyfin: services/jellyfin.md
+          - Navidrome: services/navidrome.md
+          - Piwigo: services/piwigo.md
+      - Productivity:
+          - Vaultwarden: services/vaultwarden.md
+          - Gogs: services/gogs.md
+          - File Browser: services/filebrowser.md
+          - Calibre Web: services/calibreweb.md
+      - Network Services:
+          - Tailscale: services/tailscale.md
+          - Transmission: services/transmission.md
+          - Yarr: services/yarr.md
+  - Development:
+      - Platform Overview: developers/index.md
+      - Configuration: developers/homeserver.json.md
+      - Development Workflow: developers/smb-development.md
+      - API Reference: developers/api-reference.md
+      - Customization: developers/customization.md
+  - Security & Certificates:
+      - Certificate Overview: certificates/index.md
       - Certificate Renewal: certificates/renewal.md
       - Installation & Troubleshooting: certificates/troubleshooting.md
-  - Services:
-      - Jellyfin: services/jellyfin.md
-      - Vaultwarden: services/vaultwarden.md
-      - Tailscale: services/tailscale.md
-      - Navidrome: services/navidrome.md
-      - Transmission: services/transmission.md
-      - Gogs: services/gogs.md
-      - File Browser: services/filebrowser.md
-      - Calibre Web: services/calibreweb.md
-      - Piwigo: services/piwigo.md
-      - Yarr: services/yarr.md
+      - Security Best Practices: certificates/security-best-practices.md
+  - Troubleshooting:
+      - Common Issues: troubleshooting/common-issues.md
+      - Service-Specific Problems: troubleshooting/service-issues.md
+      - Network Problems: troubleshooting/network-issues.md
+      - Performance Issues: troubleshooting/performance-issues.md
+  - Reference:
+      - Command Reference: reference/commands.md
+      - Configuration Files: reference/config-files.md
+      - Port Mappings: reference/ports.md
+      - File Locations: reference/file-locations.md
 theme:
   name: material
   palette:
@@ -53,7 +85,10 @@ theme:
     - search.highlight
     - navigation.tabs
     - navigation.tabs.sticky
-copyright: "Licensed under Apache License, Version 2.0 with Commons Clause."
+    - navigation.expand
+    - navigation.prune
+    - navigation.footer
+copyright: "Licensed under Business Source License (BSL) 1.1 with 3-year grace period. Converts to GPL after 3 years."
 extra:
   social:
     - icon: fontawesome/brands/github

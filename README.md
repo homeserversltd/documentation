@@ -1,89 +1,178 @@
-# MkDocs Documentation Contribution Guide
+# HOMESERVER Documentation Repository
 
 ## Overview
-This documentation site is powered by [MkDocs](https://www.mkdocs.org/) with the Material theme. It is designed as a living, user-centric documentation hub for HomeServer customers worldwide. Every device automatically downloads the latest documentation on update, ensuring users always have local, up-to-date guides for their system—no internet required after sync.
+
+This repository contains the official documentation for the HOMESERVER platform—a professional-grade digital sovereignty solution that provides complete independence from Big Tech surveillance. This documentation is designed as a living, user-centric resource that is automatically distributed to all HOMESERVER devices worldwide.
+
+**Repository:** [https://github.com/homeserversltd/documentation](https://github.com/homeserversltd/documentation)
 
 ---
 
-## Mental Models & Philosophy
+## What This Repository Contains
 
-### 1. User-Centric, Practical Documentation
-- **Focus on the End User:**
-  - Every guide is written for real people using the device, not just system administrators.
-  - Service docs (e.g., Jellyfin, Navidrome) emphasize what users can do, how to access features, and practical workflows.
-- **Actionable, Not Just Reference:**
-  - Documentation is structured to help users accomplish tasks, solve problems, and get the most from their HomeServer.
+### 📚 Complete Documentation Suite
+- **Setup Guides**: Physical setup, network configuration, security, and verification
+- **Service Documentation**: Comprehensive guides for all integrated services (Jellyfin, Vaultwarden, Gogs, etc.)
+- **Developer Resources**: Platform configuration, development workflows, API reference
+- **Certificate Management**: SSL/TLS installation, renewal, and troubleshooting
+- **Troubleshooting**: Common issues, service-specific problems, performance optimization
+
+### 🎯 Target Audience
+- **HOMESERVER Customers**: Complete setup and usage guides
+- **System Administrators**: Advanced configuration and maintenance
+- **Developers**: Platform integration and customization
+- **Technical Users**: Deep-dive into system architecture and capabilities
+
+---
+
+## Documentation Philosophy
+
+### 1. Professional-Grade, Not Consumer Appliance
+- **Complexity as Feature**: Embrace technical requirements as quality signals
+- **System Administrator Level**: Assume technical competence in target audience
+- **Digital Sovereignty**: Position as "datacenter in a box" for privacy-conscious professionals
+- **Enterprise Integration**: Focus on complete digital stack ownership
 
 ### 2. Always Up-to-Date, Locally Available
-- **Automatic Updates:**
-  - Documentation is bundled and updated with every HomeServer software release.
-  - Users always have the latest docs, even offline.
-- **Global Accessibility:**
-  - Designed for a worldwide audience—clear, concise, and accessible language.
+- **Automatic Distribution**: Documentation bundled with every HOMESERVER software release
+- **Offline Access**: Users always have latest docs locally—no internet required after sync
+- **Global Reach**: Designed for worldwide audience with clear, precise technical language
 
 ### 3. Extensible & Collaborative
-- **Easy Contribution:**
-  - Anyone can add or improve docs by editing Markdown files and updating navigation.
-  - No rebuild scripts or complex workflows required.
-- **Infinite Extensibility:**
-  - Add as many Markdown files as needed; organize with categories or flat lists.
-
-### 4. Consistency & Discoverability
-- **Navigation-Driven:**
-  - All docs are discoverable via the sidebar and search.
-  - Consistent structure across service guides for ease of use.
+- **Easy Contribution**: Add or improve docs by editing Markdown files and updating navigation
+- **Infinite Extensibility**: Add unlimited documentation with flexible organization
+- **Git-Based Workflow**: Standard Git contribution model with pull requests and reviews
 
 ---
 
-## How to Add New Documentation Pages
+## Repository Structure
 
+```
+docs/
+├── index.md                    # Landing page and overview
+├── setup/                      # Complete setup process
+│   ├── setup-physical.md      # Hardware and network setup
+│   ├── setup-network.md       # Network access configuration
+│   ├── setup-admin.md         # Administrative access
+│   ├── setup-security.md      # Vault and security configuration
+│   ├── setup-verification.md  # System verification
+│   └── setup-management.md    # Ongoing management
+├── services/                   # Service-specific documentation
+│   ├── jellyfin.md           # Media server guide
+│   ├── vaultwarden.md        # Password manager guide
+│   ├── gogs.md               # Git server guide
+│   ├── filebrowser.md        # File management guide
+│   ├── calibreweb.md         # E-book manager guide
+│   ├── navidrome.md          # Music server guide
+│   ├── piwigo.md             # Photo gallery guide
+│   ├── tailscale.md          # VPN service guide
+│   ├── transmission.md       # BitTorrent client guide
+│   └── yarr.md               # RSS reader guide
+├── developers/                 # Developer resources
+│   ├── index.md              # Developer overview
+│   ├── homeserver.json.md    # Platform configuration
+│   └── smb-development.md    # Development workflow
+├── certificates/               # Certificate management
+│   ├── index.md              # Certificate overview
+│   ├── renewal.md            # Certificate renewal guide
+│   └── troubleshooting.md    # Installation and troubleshooting
+├── admin/                     # System administration
+│   ├── basic-ssh-commands.md # SSH command reference
+│   ├── firewall-config.md    # Firewall configuration
+│   ├── network-troubleshooting.md # Network troubleshooting
+│   ├── vpn-setup.md          # VPN configuration
+│   ├── drive-management.md   # Drive management
+│   ├── nas-config.md         # NAS configuration
+│   ├── backup-strategies.md  # Backup strategies
+│   ├── encryption-setup.md   # Encryption configuration
+│   ├── updates-upgrades.md   # System updates
+│   ├── log-analysis.md       # Log analysis
+│   ├── performance-monitoring.md # Performance monitoring
+│   └── disaster-recovery.md  # Disaster recovery
+├── troubleshooting/            # Troubleshooting guides
+│   ├── common-issues.md      # Common problems
+│   ├── service-issues.md     # Service-specific problems
+│   ├── network-issues.md     # Network problems
+│   └── performance-issues.md # Performance problems
+└── reference/                 # Reference materials
+    ├── commands.md           # Command reference
+    ├── config-files.md       # Configuration files
+    ├── ports.md              # Port mappings
+    └── file-locations.md     # File locations
+```
+
+---
+
+## How to Contribute
+
+### 1. Adding New Documentation
 1. **Create Your Markdown File**
-   - Place your new `.md` file in the `docs/` directory (e.g., `docs/vaultwarden.md`).
-   - Example: `docs/my_new_service.md`
+   - Place your new `.md` file in the appropriate `docs/` subdirectory
+   - Follow existing naming conventions and structure
 
-2. **Link the File in the Navigation**
-   - Edit `mkdocs.yml` and add your new file to the `nav:` section.
-   - You can nest files under categories or add them at the top level.
-   - Example:
-     ```yaml
-     nav:
-       - Home: index.md
-       - Services:
-           - Vaultwarden: vaultwarden.md
-           - My New Service: my_new_service.md
-     ```
+2. **Update Navigation**
+   - Edit `mkdocs.yml` and add your file to the `nav:` section
+   - Organize logically within existing categories or create new ones
 
-3. **Update the Index (Optional)**
-   - You may also want to mention your new page in `index.md` for discoverability.
-   - Example:
-     ```markdown
-     - My New Service (see sidebar)
-     ```
+3. **Submit Pull Request**
+   - Fork the repository
+   - Make your changes
+   - Submit a pull request with clear description of changes
 
-4. **No Manual Rebuild Needed**
-   - The MkDocs service watches for changes and auto-rebuilds the site.
-   - Your new page will appear in the sidebar navigation immediately after saving changes.
+### 2. Documentation Standards
+- **Technical Precision**: Use precise technical terminology
+- **User-Centric**: Focus on what users can accomplish
+- **Actionable Content**: Provide step-by-step instructions
+- **Consistent Structure**: Follow established patterns and organization
+
+### 3. Quality Guidelines
+- **Accuracy**: Verify all technical information
+- **Clarity**: Write for technical users who understand system administration
+- **Completeness**: Include troubleshooting and edge cases
+- **Maintainability**: Structure content for easy updates
 
 ---
 
-## Infinite Extensibility
-- You can keep adding as many Markdown files as you want to the `docs/` directory.
-- Just link them in `mkdocs.yml` under `nav:` to make them appear in the navigation.
-- Organize with categories, subcategories, or flat lists as needed.
+## Building and Testing
+
+### Local Development
+```bash
+# Install MkDocs and Material theme
+pip install mkdocs mkdocs-material
+
+# Serve locally for testing
+mkdocs serve
+
+# Build static site
+mkdocs build
+```
+
+### Integration with HOMESERVER
+- This repository is deployed as a git submodule in the main HOMESERVER repository
+- Documentation is automatically built and served by the MkDocs service
+- Changes are distributed to all devices through the HOMESERVER update system
+
+---
+
+## License
+
+This documentation is licensed under **Business Source License (BSL) 1.1 with 3-year grace period**. After 3 years, it automatically converts to GPL (GNU General Public License).
+
+**Key Points:**
+- Free for non-production use
+- Prohibits commercial SaaS offerings
+- Converts to GPL after 3-year grace period
+- Aligns with HOMESERVER's digital sovereignty mission
 
 ---
 
 ## References
-- [index.md](docs/index.md): The homepage/landing page for the documentation site.
-- [mkdocs.yml](mkdocs.yml): The configuration file that controls navigation and site settings.
-- [MkDocs Documentation](https://www.mkdocs.org/)
-- [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
+
+- **Main Repository**: [HOMESERVER Platform](https://github.com/homeserversltd/homeserver)
+- **MkDocs Documentation**: [https://www.mkdocs.org/](https://www.mkdocs.org/)
+- **Material Theme**: [https://squidfunk.github.io/mkdocs-material/](https://squidfunk.github.io/mkdocs-material/)
+- **HOMESERVER Website**: [https://homeservers.ltd](https://homeservers.ltd)
 
 ---
 
-**Summary:**
-- Add Markdown files to `docs/`.
-- Link them in `mkdocs.yml` under `nav:`.
-- Optionally mention them in `index.md`.
-- MkDocs will auto-update—no manual build required.
-- All users always have the latest, locally available documentation for their device.
+**This documentation empowers HOMESERVER customers worldwide with comprehensive, always-available guides for their digital sovereignty platform.**
