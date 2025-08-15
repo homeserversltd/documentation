@@ -116,14 +116,14 @@
   - Automatic startup
 - **Storage Settings:**
   - Library path: `/mnt/nas/books`
-  - Backup location: `/mnt/nas/backup/calibre-web`
+  - Backup location: `/mnt/nas/backup/calibre-web` (placeholder - no automatic backups)
   - Log directory: `/var/log/calibre-web`
 
 ### Application Settings
 - **Database:**
   - SQLite metadata database
   - Automatic initialization
-  - Regular backups
+  - **Note:** No built-in backup functionality
 - **Environment:**
   - Python virtual environment
   - ImageMagick integration
@@ -136,7 +136,7 @@
 ### Integration
 - **HomeServer Integration:**
   - NAS storage integration
-  - Backup system integration
+  - **Backup directory structure created (manual backup implementation required)**
   - Dashboard access
 - **External Services:**
   - Metadata lookup services
@@ -193,10 +193,11 @@
   - Check log files
   - Update software
 - **Backup Strategy:**
-  - Regular database backups
-  - Configuration backups
-  - Library backups
+  - **Manual backup required - Calibre-Web has no built-in backup features**
+  - Backup `/mnt/nas/books/` directory (contains eBooks and metadata.db)
+  - Backup `/var/lib/calibre-web/app.db` (configuration database)
+  - Consider implementing cron jobs for automated backups
 
 ---
 
-**Note:** Initial admin credentials are admin/admin123. Please change these immediately after first login for security. The service is configured to store books on your NAS at `/mnt/nas/books` with automatic backups to `/mnt/nas/backup/calibre-web`. 
+**Note:** Initial admin credentials are admin/admin123. Please change these immediately after first login for security. The service is configured to store books on your NAS at `/mnt/nas/books`. **Note: Calibre-Web has no built-in backup functionality - the backup directory structure is provided but requires manual backup implementation.** 
