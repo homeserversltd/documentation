@@ -2,6 +2,7 @@ site_name: Home Server Documentation
 
 nav:
   - Home: index.md
+  - Known Good Tabs: known-good-tabs.md
   - System Administration:
       - Getting Started:
           - Physical Setup: setup/setup-physical.md

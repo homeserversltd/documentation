@@ -33,6 +33,7 @@ Each guide provides detailed, step-by-step instructions with troubleshooting tip
 1. **Navigate using the sidebar** to explore all available topics and services.
 2. **Use the search function** to quickly find guides, troubleshooting steps, or feature explanations.
 3. **Check the navigation bar** for section browsing and quick access to major features.
+4. **[Known Good Tabs](known-good-tabs.md)** — Quick access links to all services with copy buttons for easy bookmarking.
 
 ---
 
