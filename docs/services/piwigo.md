@@ -232,4 +232,17 @@
 
 ---
 
+## 11. Credits & Attribution
+
+**Piwigo** is an open-source project created and maintained by the Piwigo community. We extend our sincere gratitude to the original authors and contributors for their excellent work.
+
+- **Original Project**: [Piwigo on GitHub](https://github.com/Piwigo/Piwigo)
+- **Maintainer**: [Piwigo](https://github.com/Piwigo)
+- **License**: GPL v2
+- **Documentation**: [Piwigo Documentation](https://piwigo.org/doc/doku.php)
+
+This HomeServer integration builds upon the excellent foundation provided by the Piwigo project, adapting it for seamless integration with our platform while maintaining full compatibility with the original software.
+
+---
+
 **Remember: Always upload photos through the HomeServer interface to ensure proper storage and organization!** 

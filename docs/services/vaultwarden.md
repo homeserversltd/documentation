@@ -108,4 +108,17 @@
 
 ---
 
+## 8. Credits & Attribution
+
+**Vaultwarden** is an open-source project created and maintained by the Vaultwarden community. We extend our sincere gratitude to the original authors and contributors for their excellent work.
+
+- **Original Project**: [Vaultwarden on GitHub](https://github.com/dani-garcia/vaultwarden)
+- **Maintainer**: [dani-garcia](https://github.com/dani-garcia)
+- **License**: GPL v3
+- **Documentation**: [Vaultwarden Documentation](https://github.com/dani-garcia/vaultwarden/wiki)
+
+This HomeServer integration builds upon the excellent foundation provided by the Vaultwarden project, adapting it for seamless integration with our platform while maintaining full compatibility with the original software.
+
+---
+
 **Your passwords, always safe, always with you.**

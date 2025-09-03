@@ -146,4 +146,17 @@ Jellyfin supports a wide range of official and third-party apps:
 
 ---
 
+## 9. Credits & Attribution
+
+**Jellyfin** is an open-source project created and maintained by the Jellyfin community. We extend our sincere gratitude to the original authors and contributors for their excellent work.
+
+- **Original Project**: [Jellyfin on GitHub](https://github.com/jellyfin/jellyfin)
+- **Maintainer**: [jellyfin](https://github.com/jellyfin)
+- **License**: GPL v2
+- **Documentation**: [Jellyfin Documentation](https://jellyfin.org/docs)
+
+This HomeServer integration builds upon the excellent foundation provided by the Jellyfin project, adapting it for seamless integration with our platform while maintaining full compatibility with the original software.
+
+---
+
 **Enjoy your movies, shows, and music—anywhere, anytime!** 

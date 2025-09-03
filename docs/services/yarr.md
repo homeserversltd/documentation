@@ -196,4 +196,17 @@
 
 ---
 
+## 9. Credits & Attribution
+
+**Yarr** (Yet Another RSS Reader) is an open-source project created and maintained by the Yarr community. We extend our sincere gratitude to the original authors and contributors for their excellent work.
+
+- **Original Project**: [Yarr on GitHub](https://github.com/nkanaev/yarr)
+- **Maintainer**: [nkanaev](https://github.com/nkanaev)
+- **License**: MIT
+- **Documentation**: [Yarr Documentation](https://github.com/nkanaev/yarr#readme)
+
+This HomeServer integration builds upon the excellent foundation provided by the Yarr project, adapting it for seamless integration with our platform while maintaining full compatibility with the original software.
+
+---
+
 **Note:** Yarr is designed as a single-user RSS reader, perfect for personal use. The service runs with minimal resource usage and provides a fast, efficient way to keep up with your favorite content sources. 

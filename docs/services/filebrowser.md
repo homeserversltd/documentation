@@ -200,4 +200,17 @@
 
 ---
 
+## 9. Credits & Attribution
+
+**File Browser** is an open-source project created and maintained by the File Browser community. We extend our sincere gratitude to the original authors and contributors for their excellent work.
+
+- **Original Project**: [File Browser on GitHub](https://github.com/filebrowser/filebrowser)
+- **Maintainer**: [filebrowser](https://github.com/filebrowser)
+- **License**: Apache 2.0
+- **Documentation**: [File Browser Documentation](https://filebrowser.org/docs)
+
+This HomeServer integration builds upon the excellent foundation provided by the File Browser project, adapting it for seamless integration with our platform while maintaining full compatibility with the original software.
+
+---
+
 **Note:** File Browser is configured for security by default with authentication required and external links disabled. Contact your system administrator for account creation. 

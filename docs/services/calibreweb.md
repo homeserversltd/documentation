@@ -200,4 +200,17 @@
 
 ---
 
+## 9. Credits & Attribution
+
+**Calibre Web** is an open-source project created and maintained by the Calibre Web community. We extend our sincere gratitude to the original authors and contributors for their excellent work.
+
+- **Original Project**: [Calibre Web on GitHub](https://github.com/janeczku/calibre-web)
+- **Maintainer**: [janeczku](https://github.com/janeczku)
+- **License**: GPL v3
+- **Documentation**: [Calibre Web Documentation](https://github.com/janeczku/calibre-web/wiki)
+
+This HomeServer integration builds upon the excellent foundation provided by the Calibre Web project, adapting it for seamless integration with our platform while maintaining full compatibility with the original software.
+
+---
+
 **Note:** Initial admin credentials are admin/admin123. Please change these immediately after first login for security. The service is configured to store books on your NAS at `/mnt/nas/books`. **Note: Calibre-Web has no built-in backup functionality - the backup directory structure is provided but requires manual backup implementation.** 

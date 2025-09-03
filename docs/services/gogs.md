@@ -193,4 +193,17 @@
 
 ---
 
+## 9. Credits & Attribution
+
+**Gogs** (Go Git Service) is an open-source project created and maintained by the Gogs community. We extend our sincere gratitude to the original authors and contributors for their excellent work.
+
+- **Original Project**: [Gogs on GitHub](https://github.com/gogs/gogs)
+- **Maintainer**: [gogs](https://github.com/gogs)
+- **License**: MIT
+- **Documentation**: [Gogs Documentation](https://gogs.io/docs)
+
+This HomeServer integration builds upon the excellent foundation provided by the Gogs project, adapting it for seamless integration with our platform while maintaining full compatibility with the original software.
+
+---
+
 **Note:** Gogs is configured for security by default with registration disabled and mandatory sign-in for repository viewing. Contact your system administrator for account creation. 
