@@ -7,7 +7,7 @@
 - **Direct IP Access**: [https://files.home.arpa](https://files.home.arpa)
 
 ### Remote Access (via Tailscale)
-- **Remote URL**: [https://server.{YourTailnetNameHere}.ts.net/files/](https://server.{YourTailnetNameHere}.ts.net/files/)
+- **Remote URL**: [https://home.{YourTailnetNameHere}.ts.net/files/](https://home.{YourTailnetNameHere}.ts.net/files/)
 
 ---
 
@@ -44,7 +44,7 @@
   - Access via `https://files.home.arpa`
   - Or through your HomeServer dashboard
 - **Remote Access:**
-  - Use your Tailscale URL: `https://server.{YourTailnet}.ts.net/files/`
+  - Use your Tailscale URL: `https://home.{YourTailnet}.ts.net/files/`
   - See [Tailscale Guide](tailscale.md) for remote access details
 
 ### File Operations

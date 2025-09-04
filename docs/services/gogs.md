@@ -7,7 +7,7 @@
 - **Direct IP Access**: [https://git.home.arpa/git/](https://git.home.arpa/git/) 
 
 ### Remote Access (via Tailscale)
-- **Remote URL**: [https://server.{YourTailnetNameHere}.ts.net/git/](https://server.{YourTailnetNameHere}.ts.net/git/)
+- **Remote URL**: [https://home.{YourTailnetNameHere}.ts.net/git/](https://home.{YourTailnetNameHere}.ts.net/git/)
 
 ## Overview
 
@@ -41,7 +41,7 @@
   - Access via `https://git.home.arpa/git/`
   - Or through your HomeServer dashboard
 - **Remote Access:**
-  - Use your Tailscale URL: `https://server.{YourTailnet}.ts.net/git/`
+  - Use your Tailscale URL: `https://home.{YourTailnet}.ts.net/git/`
   - See [Tailscale Guide](tailscale.md) for remote access details
 
 ### Git Operations

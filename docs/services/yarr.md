@@ -7,7 +7,7 @@
 - **Direct IP Access**: [https://rss.home.arpa](https://rss.home.arpa) 
 
 ### Remote Access (via Tailscale)
-- **Remote URL**: [https://server.{YourTailnetNameHere}.ts.net/rss/](https://server.{YourTailnetNameHere}.ts.net/rss/)
+- **Remote URL**: [https://home.{YourTailnetNameHere}.ts.net/rss/](https://home.{YourTailnetNameHere}.ts.net/rss/)
 
 ---
 
@@ -44,7 +44,7 @@
   - Access via `https://rss.home.arpa`
   - Or through your HomeServer dashboard
 - **Remote Access:**
-  - Use your Tailscale URL: `https://server.{YourTailnet}.ts.net/rss/`
+  - Use your Tailscale URL: `https://home.{YourTailnet}.ts.net/rss/`
   - See [Tailscale Guide](tailscale.md) for remote access details
 
 ### Interface Features

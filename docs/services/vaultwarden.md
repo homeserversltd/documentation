@@ -7,7 +7,7 @@
 - **Direct IP Access**: [https://vault.home.arpa](https://vault.home.arpa)
 
 ### Remote Access (via Tailscale)
-- **Remote URL**: [https://server.{YourTailnetNameHere}.ts.net/vault/](https://server.{YourTailnetNameHere}.ts.net/vault/)
+- **Remote URL**: [https://home.{YourTailnetNameHere}.ts.net/vault/](https://home.{YourTailnetNameHere}.ts.net/vault/)
 
 ---
 
@@ -22,7 +22,7 @@
 - **Web Interface:**
   - Open [https://vault.home.arpa](https://vault.home.arpa) in your browser.
 - **Remote Access:**
-  - Use [https://server.{YourTailnetNameHere}.ts.net/vault/](https://server.{YourTailnetNameHere}.ts.net/vault/) when connected via Tailscale.
+  - Use [https://home.{YourTailnetNameHere}.ts.net/vault/](https://home.{YourTailnetNameHere}.ts.net/vault/) when connected via Tailscale.
 - **Portal Shortcut:**
   - Find Vaultwarden in your HomeServer portal under "Password Manager" or "Vaultwarden".
 

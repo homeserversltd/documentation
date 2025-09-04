@@ -9,7 +9,7 @@
 
 ### Remote Network Access
 - **Your Tailscale Network**: Provides secure access to all HomeServer services
-- **Remote HomeServer URL**: [https://server.{YourTailnetNameHere}.ts.net](https://server.{YourTailnetNameHere}.ts.net)
+- **Remote HomeServer URL**: [https://home.{YourTailnetNameHere}.ts.net](https://home.{YourTailnetNameHere}.ts.net)
 - **Note**: Tailscale is the service that enables remote access to all other services
 
 ---
@@ -41,9 +41,9 @@
   1. Install the Tailscale app on your device ([Download here](https://tailscale.com/download)).
   2. Log in with your account and join your Tailnet.
   3. Once connected, you can access your HomeServer services using their Tailscale URLs, for example:
-     - `https://server.{YourTailnetNameHere}.ts.net/jellyfin/`
-     - `https://server.{YourTailnetNameHere}.ts.net/vault/`
-     - `https://server.{YourTailnetNameHere}.ts.net/music/`
+     - `https://home.{YourTailnetNameHere}.ts.net/jellyfin/`
+     - `https://home.{YourTailnetNameHere}.ts.net/vault/`
+     - `https://home.{YourTailnetNameHere}.ts.net/music/`
 - **No VPN Client Needed for Local Access:**
   - On your home network, continue using the standard URLs (e.g., `https://jellyfin.home.arpa`).
 

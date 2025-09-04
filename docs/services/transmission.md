@@ -45,7 +45,7 @@
   - Access via `https://transmission.home.arpa`
   - Or through your HomeServer dashboard
 - **Remote Access:**
-  - Use your Tailscale URL: `https://server.{YourTailnet}.ts.net/transmission/`
+  - Use your Tailscale URL: `https://home.{YourTailnet}.ts.net/transmission/`
   - See [Tailscale Guide](tailscale.md) for remote access details
 
 ### Managing Downloads

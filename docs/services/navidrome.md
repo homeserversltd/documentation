@@ -7,7 +7,7 @@
 - **Direct IP Access**: [https://music.home.arpa](https://music.home.arpa)
 
 ### Remote Access (via Tailscale)
-- **Remote URL**: [https://server.{YourTailnetNameHere}.ts.net/music/](https://server.{YourTailnetNameHere}.ts.net/music/)
+- **Remote URL**: [https://home.{YourTailnetNameHere}.ts.net/music/](https://home.{YourTailnetNameHere}.ts.net/music/)
 
 ---
 
@@ -22,7 +22,7 @@
 - **Web Interface:**
   - Open [https://music.home.arpa](https://music.home.arpa) in your browser.
 - **Remote Access:**
-  - Use [https://server.{YourTailnetNameHere}.ts.net/music/](https://server.{YourTailnetNameHere}.ts.net/music/) when connected via Tailscale.
+  - Use [https://home.{YourTailnetNameHere}.ts.net/music/](https://home.{YourTailnetNameHere}.ts.net/music/) when connected via Tailscale.
 - **Portal Shortcut:**
   - Find Navidrome in your HomeServer portal under "Music".
 

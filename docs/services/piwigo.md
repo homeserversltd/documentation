@@ -7,7 +7,7 @@
 - **Direct IP Access**: [https://piwigo.home.arpa](https://piwigo.home.arpa)
 
 ### Remote Access (via Tailscale)
-- **Remote URL**: [https://server.{YourTailnetNameHere}.ts.net/piwigo/](https://server.{YourTailnetNameHere}.ts.net/piwigo/)
+- **Remote URL**: [https://home.{YourTailnetNameHere}.ts.net/piwigo/](https://home.{YourTailnetNameHere}.ts.net/piwigo/)
 
 ---
 
@@ -35,7 +35,7 @@
 - **Web Interface:**
   - Open [https://piwigo.home.arpa](https://piwigo.home.arpa) in your browser.
 - **Remote Access:**
-  - Use [https://server.{YourTailnetNameHere}.ts.net/piwigo/](https://server.{YourTailnetNameHere}.ts.net/piwigo/) when connected via Tailscale.
+  - Use [https://home.{YourTailnetNameHere}.ts.net/piwigo/](https://home.{YourTailnetNameHere}.ts.net/piwigo/) when connected via Tailscale.
 - **Portal Shortcut:**
   - Find Piwigo in your HomeServer portal under "Media" or "Photos".
 

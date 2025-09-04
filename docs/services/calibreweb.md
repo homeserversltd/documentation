@@ -6,7 +6,7 @@
 - **Web Interface**: [https://books.home.arpa](https://books.home.arpa)
 - **Direct IP Access**: [https://books.home.arpa](https://books.home.arpa) 
 ### Remote Access (via Tailscale)
-- **Remote URL**: [https://server.{YourTailnetNameHere}.ts.net/books/](https://server.{YourTailnetNameHere}.ts.net/books/)
+- **Remote URL**: [https://home.{YourTailnetNameHere}.ts.net/books/](https://home.{YourTailnetNameHere}.ts.net/books/)
 
 ---
 
@@ -43,7 +43,7 @@
   - Access via `https://books.home.arpa`
   - Or through your HomeServer dashboard
 - **Remote Access:**
-  - Use your Tailscale URL: `https://server.{YourTailnet}.ts.net/books/`
+  - Use your Tailscale URL: `https://home.{YourTailnet}.ts.net/books/`
   - See [Tailscale Guide](tailscale.md) for remote access details
 
 ### Library Features

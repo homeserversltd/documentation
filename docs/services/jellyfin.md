@@ -7,7 +7,7 @@
 - **Direct IP Access**: [https://jellyfin.home.arpa](https://jellyfin.home.arpa)
 
 ### Remote Access (via Tailscale)
-- **Remote URL**: [https://server.{YourTailnetNameHere}.ts.net/jellyfin/](https://server.{YourTailnetNameHere}.ts.net/jellyfin/)
+- **Remote URL**: [https://home.{YourTailnetNameHere}.ts.net/jellyfin/](https://home.{YourTailnetNameHere}.ts.net/jellyfin/)
 
 ---
 
@@ -22,7 +22,7 @@
 - **Web Interface:**
   - Open [https://jellyfin.home.arpa](https://jellyfin.home.arpa) in your browser.
 - **Remote Access:**
-  - Use [https://server.{YourTailnetNameHere}.ts.net/jellyfin/](https://server.{YourTailnetNameHere}.ts.net/jellyfin/) when connected via Tailscale.
+  - Use [https://home.{YourTailnetNameHere}.ts.net/jellyfin/](https://home.{YourTailnetNameHere}.ts.net/jellyfin/) when connected via Tailscale.
 - **Portal Shortcut:**
   - Find Jellyfin in your HomeServer portal under "Media" or "Jellyfin".
 
