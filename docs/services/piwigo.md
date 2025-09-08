@@ -1,5 +1,16 @@
 # Piwigo Photo Gallery Guide
 
+## Official Resources & Support
+
+!!! info "Service-Specific Issues"
+    **Experiencing issues with Piwigo functionality?** Please create an issue ticket with the original developers so they can fix it for everyone. HomeServer LLC provides the integration and hosting platform only.
+
+### Official Links
+- **Original Project**: [Piwigo on GitHub](https://github.com/Piwigo/Piwigo)
+- **Maintainer**: [Piwigo](https://github.com/Piwigo)
+- **License**: GPL v2
+- **Official Documentation**: [Piwigo Documentation](https://piwigo.org/doc/doku.php)
+
 ## Quick Access
 
 ### Local Network Access
@@ -235,11 +246,6 @@
 ## 11. Credits & Attribution
 
 **Piwigo** is an open-source project created and maintained by the Piwigo community. We extend our sincere gratitude to the original authors and contributors for their excellent work.
-
-- **Original Project**: [Piwigo on GitHub](https://github.com/Piwigo/Piwigo)
-- **Maintainer**: [Piwigo](https://github.com/Piwigo)
-- **License**: GPL v2
-- **Documentation**: [Piwigo Documentation](https://piwigo.org/doc/doku.php)
 
 This HomeServer integration builds upon the excellent foundation provided by the Piwigo project, adapting it for seamless integration with our platform while maintaining full compatibility with the original software.
 

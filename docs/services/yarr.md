@@ -1,5 +1,16 @@
 # Yarr RSS Reader Guide
 
+## Official Resources & Support
+
+!!! info "Service-Specific Issues"
+    **Experiencing issues with Yarr functionality?** Please create an issue ticket with the original developers so they can fix it for everyone. HomeServer LLC provides the integration and hosting platform only.
+
+### Official Links
+- **Original Project**: [Yarr on GitHub](https://github.com/nkanaev/yarr)
+- **Maintainer**: [nkanaev](https://github.com/nkanaev)
+- **License**: MIT
+- **Official Documentation**: [Yarr Documentation](https://github.com/nkanaev/yarr#readme)
+
 ## Quick Access
 
 ### Local Network Access
@@ -199,11 +210,6 @@
 ## 9. Credits & Attribution
 
 **Yarr** (Yet Another RSS Reader) is an open-source project created and maintained by the Yarr community. We extend our sincere gratitude to the original authors and contributors for their excellent work.
-
-- **Original Project**: [Yarr on GitHub](https://github.com/nkanaev/yarr)
-- **Maintainer**: [nkanaev](https://github.com/nkanaev)
-- **License**: MIT
-- **Documentation**: [Yarr Documentation](https://github.com/nkanaev/yarr#readme)
 
 This HomeServer integration builds upon the excellent foundation provided by the Yarr project, adapting it for seamless integration with our platform while maintaining full compatibility with the original software.
 

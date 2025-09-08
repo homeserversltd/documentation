@@ -1,5 +1,16 @@
 # Tailscale VPN Service Guide
 
+## Official Resources & Support
+
+!!! info "Service-Specific Issues"
+    **Experiencing issues with Tailscale functionality?** Please create an issue ticket with the original developers so they can fix it for everyone. HomeServer LLC provides the integration and hosting platform only.
+
+### Official Links
+- **Original Project**: [Tailscale on GitHub](https://github.com/tailscale/tailscale)
+- **Company**: [Tailscale Inc.](https://tailscale.com/)
+- **License**: Various (see [Tailscale License](https://github.com/tailscale/tailscale/blob/main/LICENSE))
+- **Official Documentation**: [Tailscale Documentation](https://tailscale.com/kb/)
+
 ## Quick Access
 
 ### Service Management
@@ -129,11 +140,6 @@ These features are powered by HomeServer's advanced backend integration with Tai
 ## 9. Credits & Attribution
 
 **Tailscale** is a commercial VPN service created and maintained by Tailscale Inc. We extend our sincere gratitude to the Tailscale team for their excellent work in providing secure, easy-to-use VPN technology.
-
-- **Original Project**: [Tailscale on GitHub](https://github.com/tailscale/tailscale)
-- **Company**: [Tailscale Inc.](https://tailscale.com/)
-- **License**: Various (see [Tailscale License](https://github.com/tailscale/tailscale/blob/main/LICENSE))
-- **Documentation**: [Tailscale Documentation](https://tailscale.com/kb/)
 
 This HomeServer integration builds upon the excellent foundation provided by Tailscale, adapting it for seamless integration with our platform while maintaining full compatibility with the original service.
 

@@ -1,5 +1,16 @@
 # Transmission with PIA VPN Integration
 
+## Official Resources & Support
+
+!!! info "Service-Specific Issues"
+    **Experiencing issues with Transmission functionality?** Please create an issue ticket with the original developers so they can fix it for everyone. HomeServer LLC provides the integration and hosting platform only.
+
+### Official Links
+- **Original Project**: [Transmission on GitHub](https://github.com/transmission/transmission)
+- **Maintainer**: [transmission](https://github.com/transmission)
+- **License**: GPL v2
+- **Official Documentation**: [Transmission Documentation](https://transmissionbt.com/help/)
+
 ## Quick Access
 
 ### Local Network Access
@@ -202,11 +213,6 @@
 ## 9. Credits & Attribution
 
 **Transmission** is an open-source project created and maintained by the Transmission community. We extend our sincere gratitude to the original authors and contributors for their excellent work.
-
-- **Original Project**: [Transmission on GitHub](https://github.com/transmission/transmission)
-- **Maintainer**: [transmission](https://github.com/transmission)
-- **License**: GPL v2
-- **Documentation**: [Transmission Documentation](https://transmissionbt.com/help/)
 
 This HomeServer integration builds upon the excellent foundation provided by the Transmission project, adapting it for seamless integration with our platform while maintaining full compatibility with the original software.
 

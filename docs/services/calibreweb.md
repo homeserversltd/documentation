@@ -1,5 +1,16 @@
 # Calibre Web E-book Manager Guide
 
+## Official Resources & Support
+
+!!! info "Service-Specific Issues"
+    **Experiencing issues with Calibre Web functionality?** Please create an issue ticket with the original developers so they can fix it for everyone. HomeServer LLC provides the integration and hosting platform only.
+
+### Official Links
+- **Original Project**: [Calibre Web on GitHub](https://github.com/janeczku/calibre-web)
+- **Maintainer**: [janeczku](https://github.com/janeczku)
+- **License**: GPL v3
+- **Official Documentation**: [Calibre Web Documentation](https://github.com/janeczku/calibre-web/wiki)
+
 ## Quick Access
 
 ### Local Network Access
@@ -203,11 +214,6 @@
 ## 9. Credits & Attribution
 
 **Calibre Web** is an open-source project created and maintained by the Calibre Web community. We extend our sincere gratitude to the original authors and contributors for their excellent work.
-
-- **Original Project**: [Calibre Web on GitHub](https://github.com/janeczku/calibre-web)
-- **Maintainer**: [janeczku](https://github.com/janeczku)
-- **License**: GPL v3
-- **Documentation**: [Calibre Web Documentation](https://github.com/janeczku/calibre-web/wiki)
 
 This HomeServer integration builds upon the excellent foundation provided by the Calibre Web project, adapting it for seamless integration with our platform while maintaining full compatibility with the original software.
 

@@ -33,13 +33,43 @@ Each guide provides detailed, step-by-step instructions with troubleshooting tip
 1. **Navigate using the sidebar** to explore all available topics and services.
 2. **Use the search function** to quickly find guides, troubleshooting steps, or feature explanations.
 3. **Check the navigation bar** for section browsing and quick access to major features.
-4. **[Known Good Tabs](known-good-tabs.md)** — Quick access links to all services with copy buttons for easy bookmarking.
+4. **[Known Good Tabs](resources/known-good-tabs.md)** — Quick access links to all services with copy buttons for easy bookmarking.
 
 ---
 
 ## Platform & Configuration
 
 - [Platform Configuration (homeserver.json)](homeserver.json.md) — Learn how your HomeServer is structured and how easy it is to add or manage services.
+
+## Adding New Services
+
+Your HomeServer makes it incredibly easy to add new services from the vast ecosystem of self-hosted applications. With our streamlined integration process, you can have new services running in minutes.
+
+### Discover New Services
+- **[Awesome Selfhosted](https://awesome-selfhosted.net/)** — Browse thousands of open-source, self-hostable applications across all categories
+- **Categories include**: Media streaming, file management, productivity tools, development tools, communication platforms, and much more
+
+### Simple Integration Process
+Adding a new service to your HomeServer requires just a few steps:
+
+1. **Choose Your Service** — Find something you like from [awesome-selfhosted.net](https://awesome-selfhosted.net/)
+2. **Install the Service** — Follow the service's installation instructions
+3. **Configure Nginx** — Create a new site config and symlink to enabled
+4. **Enable Remote Access** — Add Tailscale configuration with +1 prefix for remote URLs
+5. **Add DNS Entry** — Point your new URL to 192.168.123.1 in unbound
+6. **Register in HomeServer** — Use the admin portal to add the service with its port number
+
+### Integration Benefits
+- **Unified Dashboard** — All services appear in your HomeServer interface
+- **Automatic Monitoring** — Health checks and status indicators
+- **Secure Access** — Built-in authentication and HTTPS
+- **Remote Access** — Automatic Tailscale integration for secure remote access
+- **Easy Management** — Start/stop services from the admin panel
+
+### Documentation
+- See [Platform Configuration](homeserver.json.md) for detailed integration steps
+- Check existing service configs in `/etc/nginx/sites-available/` for reference
+- Review `/etc/homeserver.json` for port number management and collision avoidance
 
 ---
 

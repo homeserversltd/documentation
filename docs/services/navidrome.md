@@ -1,5 +1,16 @@
 # Navidrome Music Server Guide
 
+## Official Resources & Support
+
+!!! info "Service-Specific Issues"
+    **Experiencing issues with Navidrome functionality?** Please create an issue ticket with the original developers so they can fix it for everyone. HomeServer LLC provides the integration and hosting platform only.
+
+### Official Links
+- **Original Project**: [Navidrome on GitHub](https://github.com/navidrome/navidrome)
+- **Maintainer**: [navidrome](https://github.com/navidrome)
+- **License**: GPL v3
+- **Official Documentation**: [Navidrome Documentation](https://www.navidrome.org/docs/)
+
 ## Quick Access
 
 ### Local Network Access
@@ -110,11 +121,6 @@ Navidrome supports the [Subsonic API](https://www.navidrome.org/docs/usage/clien
 ## 8. Credits & Attribution
 
 **Navidrome** is an open-source project created and maintained by the Navidrome community. We extend our sincere gratitude to the original authors and contributors for their excellent work.
-
-- **Original Project**: [Navidrome on GitHub](https://github.com/navidrome/navidrome)
-- **Maintainer**: [navidrome](https://github.com/navidrome)
-- **License**: GPL v3
-- **Documentation**: [Navidrome Documentation](https://www.navidrome.org/docs/)
 
 This HomeServer integration builds upon the excellent foundation provided by the Navidrome project, adapting it for seamless integration with our platform while maintaining full compatibility with the original software.
 

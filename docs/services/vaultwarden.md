@@ -1,5 +1,16 @@
 # Vaultwarden Password Manager Guide
 
+## Official Resources & Support
+
+!!! info "Service-Specific Issues"
+    **Experiencing issues with Vaultwarden functionality?** Please create an issue ticket with the original developers so they can fix it for everyone. HomeServer LLC provides the integration and hosting platform only.
+
+### Official Links
+- **Original Project**: [Vaultwarden on GitHub](https://github.com/dani-garcia/vaultwarden)
+- **Maintainer**: [dani-garcia](https://github.com/dani-garcia)
+- **License**: GPL v3
+- **Official Documentation**: [Vaultwarden Documentation](https://github.com/dani-garcia/vaultwarden/wiki)
+
 ## Quick Access
 
 ### Local Network Access
@@ -111,11 +122,6 @@
 ## 8. Credits & Attribution
 
 **Vaultwarden** is an open-source project created and maintained by the Vaultwarden community. We extend our sincere gratitude to the original authors and contributors for their excellent work.
-
-- **Original Project**: [Vaultwarden on GitHub](https://github.com/dani-garcia/vaultwarden)
-- **Maintainer**: [dani-garcia](https://github.com/dani-garcia)
-- **License**: GPL v3
-- **Documentation**: [Vaultwarden Documentation](https://github.com/dani-garcia/vaultwarden/wiki)
 
 This HomeServer integration builds upon the excellent foundation provided by the Vaultwarden project, adapting it for seamless integration with our platform while maintaining full compatibility with the original software.
 
