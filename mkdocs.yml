@@ -17,6 +17,7 @@ nav:
           - Firewall Configuration: admin/firewall-config.md
           - Network Troubleshooting: admin/network-troubleshooting.md
           - VPN Setup: admin/vpn-setup.md
+          - Printer Setup: admin/printer-setup.md
       - Storage & Drives:
           - Drive Management: admin/drive-management.md
           - NAS Configuration: admin/nas-config.md
