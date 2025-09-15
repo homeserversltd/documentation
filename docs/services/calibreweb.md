@@ -72,7 +72,7 @@
 ## 3. Book Management
 
 ### Basic Operations
-- Upload new books
+- Upload new books (requires server-side configuration - see Configuration section)
 - Edit metadata
 - Organize collections
 - Download books
@@ -93,31 +93,6 @@
 
 ---
 
-## 4. Security Features
-
-### Authentication
-- **User Management:**
-  - Individual user accounts
-  - Role-based permissions
-  - Guest access options
-- **Access Control:**
-  - Reading permissions
-  - Download restrictions
-  - Upload privileges
-  - Admin functions
-
-### Data Protection
-- **Library Security:**
-  - Secure storage on NAS
-  - Regular backups
-  - File integrity checks
-- **User Privacy:**
-  - Reading progress privacy
-  - Personal bookshelf
-  - Secure sessions
-
----
-
 ## 5. Configuration
 
 ### System Settings
@@ -127,56 +102,24 @@
   - Automatic startup
 - **Storage Settings:**
   - Library path: `/mnt/nas/books`
-  - Backup location: `/mnt/nas/backup/calibre-web` (placeholder - no automatic backups)
+
   - Log directory: `/var/log/calibre-web`
 
-### Application Settings
-- **Database:**
-  - SQLite metadata database
-  - Automatic initialization
-  - **Note:** No built-in backup functionality
-- **Environment:**
-  - Python virtual environment
-  - ImageMagick integration
-  - Unrar support
 
----
+### Upload Configuration
+- **Server-Side Setup:**
+  - Navigate to Admin tab → Edit Basic Config → Feature Configuration
+  - Check the "Enable Uploads" button to enable upload functionality
+  - This must be configured before per-user upload permissions take effect
+- **User Access:**
+  - Once server uploads are enabled, an Upload button appears at the top of the main page
+  - Individual users must have upload permissions enabled in their account settings
+  - Upload functionality is only available when both server and user settings are properly configured
 
-## 6. Advanced Features
-
-### Integration
-- **HomeServer Integration:**
-  - NAS storage integration
-  - **Backup directory structure created (manual backup implementation required)**
-  - Dashboard access
-- **External Services:**
-  - Metadata lookup services
-  - Cover art databases
-  - Book information sources
-
-### Customization
-- **Interface:**
-  - Custom categories
-  - Display preferences
-  - Reading settings
-- **Library:**
-  - Custom metadata fields
-  - Organization schemes
-  - View customization
 
 ---
 
 ## 7. Troubleshooting
-
-### Common Issues
-- **Access Problems:**
-  - Verify network connectivity
-  - Check authentication credentials
-  - Confirm NAS mount status
-- **Library Issues:**
-  - Check file permissions
-  - Verify metadata database
-  - Review storage space
 
 ### Logging
 - **Log Locations:**
@@ -186,17 +129,6 @@
 
 ---
 
-## 8. Best Practices
-
-### Library Management
-- **Organization:**
-  - Consistent naming scheme
-  - Complete metadata
-  - Regular backups
-- **Maintenance:**
-  - Update metadata regularly
-  - Check for duplicates
-  - Verify file integrity
 
 ### System Care
 - **Regular Tasks:**
@@ -207,7 +139,6 @@
   - **Manual backup required - Calibre-Web has no built-in backup features**
   - Backup `/mnt/nas/books/` directory (contains eBooks and metadata.db)
   - Backup `/var/lib/calibre-web/app.db` (configuration database)
-  - Consider implementing cron jobs for automated backups
 
 ---
 
