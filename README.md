@@ -171,7 +171,7 @@ This documentation is licensed under **Business Source License (BSL) 1.1 with 3-
 - **Main Repository**: [HOMESERVER Platform](https://github.com/homeserversltd/homeserver)
 - **MkDocs Documentation**: [https://www.mkdocs.org/](https://www.mkdocs.org/)
 - **Material Theme**: [https://squidfunk.github.io/mkdocs-material/](https://squidfunk.github.io/mkdocs-material/)
-- **HOMESERVER Website**: [https://homeservers.ltd](https://homeservers.ltd)
+- **HOMESERVER Website**: [https://arpaservers.com](https://arpaservers.com)
 
 ---
 

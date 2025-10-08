@@ -98,7 +98,7 @@ extra:
       link: https://github.com/homeserversltd/updates
       name: GitHub
     - icon: fontawesome/solid/globe
-      link: https://homeservers.ltd
+      link: https://arpaservers.com
       name: Website
 markdown_extensions:
   - pymdownx.highlight:
