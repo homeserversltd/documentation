@@ -156,12 +156,12 @@ mkdocs build
 
 ## License
 
-This documentation is licensed under **Business Source License (BSL) 1.1 with 3-year grace period**. After 3 years, it automatically converts to GPL (GNU General Public License).
+This documentation is licensed under **GPL v3.0 (GNU General Public License version 3.0)**.
 
 **Key Points:**
-- Free for non-production use
-- Prohibits commercial SaaS offerings
-- Converts to GPL after 3-year grace period
+- Free and open source software
+- Freedom to use, study, share, and modify
+- Copyleft license ensuring derivatives remain free
 - Aligns with HOMESERVER's digital sovereignty mission
 
 ---

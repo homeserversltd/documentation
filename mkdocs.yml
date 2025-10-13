@@ -91,7 +91,7 @@ theme:
     - navigation.expand
     - navigation.prune
     - navigation.footer
-copyright: "Licensed under Business Source License (BSL) 1.1 with 3-year grace period. Converts to GPL after 3 years."
+copyright: "Licensed under GPL v3.0 (GNU General Public License version 3.0)"
 extra:
   social:
     - icon: fontawesome/brands/github
