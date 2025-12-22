@@ -59,6 +59,7 @@ nav:
       - Network Problems: troubleshooting/network-issues.md
       - Performance Issues: troubleshooting/performance-issues.md
   - Reference:
+      - DVD Ripping Guide: reference/dvd-ripping.md
       - Command Reference: reference/commands.md
       - Configuration Files: reference/config-files.md
       - Port Mappings: reference/ports.md
