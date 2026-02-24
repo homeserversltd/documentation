@@ -65,7 +65,7 @@ Add a new reservation entry to the `reservations` array:
 {
     "Dhcp4": {
         "interfaces-config": {
-            "interfaces": ["enp2s0"]
+            "interfaces": ["lan0"]
         },
         "lease-database": {
             "type": "memfile",

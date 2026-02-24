@@ -1,3 +1,29 @@
+# Troubleshooting
+
+This section collects recurring issues and their resolutions. For NIC/network problems on specific hardware, see the footnote below.
+
+---
+
+## NIC link down (BIOS power management) {#nic-link-down-bios}
+
+**Issue:**  
+WAN or LAN interfaces stay down, or the device only gets network when Ethernet cables were **plugged in before boot**. DHCP (Kea) may not bind; the device can appear unreachable.
+
+**Cause:**  
+On some hardware (notably certain MiniForum and similar units), BIOS power-management features put the NIC into low-power states that only wake on physical link detection. No amount of software configuration overrides this.
+
+**Fix (BIOS):**
+
+1. Enter BIOS at boot (typically Del or F2).
+2. **Disable ASPM:** Advanced → Onboard Devices → PCH-PCIE (or similar). Set all ASPM options to **Disabled**.
+3. **Disable Energy Efficient Ethernet (EEE):** Find and disable EEE in advanced/onboard options.
+4. **Disable Deep S5:** Disable Deep S5 (and any "deep sleep" NIC option) so the NIC does not enter ultra-low-power state.
+5. Save and exit; reboot. Connect cables and verify WAN/LAN and DHCP.
+
+**Footnote:** If things are broken, ensure cables are plugged in before booting. For full technical detail, see the cold-storage reference: *MiniForum NIC / BIOS power management*.
+
+---
+
 ## Troubleshooting Log: Disk Full Disaster (Module 1)
 
 **Issue:**  

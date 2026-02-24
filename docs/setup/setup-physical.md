@@ -27,6 +27,9 @@ Your HomeServer package includes everything you need to get started:
 - **Device not appearing**: Verify DHCP is enabled on your router
 - **Slow boot times**: Allow up to 5 minutes for initial setup
 
+!!! note "WAN/LAN down or only works with cables in at boot"
+    If the device has no network, or only gets an address when cables were **plugged in before power-on**, ensure Ethernet cables are connected before booting. On some hardware (e.g. certain MiniForum units), the NIC will not come up until the BIOS power-management options are adjusted. See [NIC link down (BIOS power management)](../admin/troubleshooting.md#nic-link-down-bios) in the troubleshooting section.
+
 ### Network Requirements
 - **DHCP enabled** on your local router
 - **Standard home network** (192.168.x.x or 10.x.x.x ranges)
