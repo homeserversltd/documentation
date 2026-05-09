@@ -4,6 +4,37 @@ This section collects recurring issues and their resolutions. For NIC/network pr
 
 ---
 
+## `503 Service Temporarily Unavailable` on `https://home.arpa` {#home-arpa-503}
+
+**Issue:**  
+Nginx shows `503 Service Temporarily Unavailable` for `https://home.arpa`.
+
+**Quick fix:**  
+Rebuild the frontend artifacts on the server:
+
+```bash
+cd /var/www/homeserver
+sudo npm run build
+```
+
+If you do **not** see a `src/` directory (or source files) in `/var/www/homeserver`, this likely means only the build output is present. In that case, you will need to clone the full website repository with the source code before running `npm run build`:
+
+```bash
+cd /var/www
+sudo git clone <website-repo-url> homeserver
+cd homeserver
+sudo npm install
+sudo npm run build
+```
+Replace `<website-repo-url>` with the actual repository URL.
+
+Then refresh `https://home.arpa`.
+
+**Note:**  
+One known failure mode is missing or stale frontend build output under `/var/www/homeserver/build`, which causes the app to fail serving `index.html`. If the source files (`src/`) are missing, attempting to rebuild will not work—ensure you have the source present either by restoring it or doing a fresh `git clone` of the website repository.
+
+---
+
 ## NIC link down (BIOS power management) {#nic-link-down-bios}
 
 **Issue:**  
