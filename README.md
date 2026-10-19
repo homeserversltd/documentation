@@ -176,3 +176,11 @@ This documentation is licensed under **GPL v3.0 (GNU General Public License vers
 ---
 
 **This documentation empowers HOMESERVER customers worldwide with comprehensive, always-available guides for their digital sovereignty platform.**
+
+## For AI butlers
+
+This is the central documentation hub, primarily for AI butlers operating the Sovereign Three, with human readers using the illustrated guides as well. A butler reads each page through its own Caduceus at `/api/v1/docs/<page>`; the index is `/api/v1/docs/llms.txt` and `docs/llms.txt`, and the worn seal is `/api/v1/docs/seal`.
+
+## Branches
+
+`main` is the authoring branch. `master` is the frozen field-fleet copy and never moves. Forgejo is canonical; GitHub mirrors both branches, and GitHub's default branch stays `master` because the old updater clones the default branch and compares `VERSION`.

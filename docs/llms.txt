@@ -1,0 +1,31 @@
+# Home Server Documentation
+
+An AI butler on HomeServer, HomeConsole, or HomeTV reads these pages through its own Caduceus.
+Read a page at `/api/v1/docs/<page>` and the butler's worn seal at `/api/v1/docs/seal`.
+
+- [Home](index.md)
+- [Known Good Tabs](resources/known-good-tabs.md)
+- [Physical Setup](setup/setup-physical.md)
+- [Network Access](setup/setup-network.md)
+- [Admin Authentication](setup/setup-admin.md)
+- [Security Configuration](setup/setup-security.md)
+- [System Verification](setup/setup-verification.md)
+- [Ongoing Management](setup/setup-management.md)
+- [Printer Setup](admin/printer-setup.md)
+- [Jellyfin](services/jellyfin.md)
+- [Navidrome](services/navidrome.md)
+- [Piwigo](services/piwigo.md)
+- [Vaultwarden](services/vaultwarden.md)
+- [Gogs](services/gogs.md)
+- [File Browser](services/filebrowser.md)
+- [Calibre Web](services/calibreweb.md)
+- [Tailscale](services/tailscale.md)
+- [Transmission](services/transmission.md)
+- [Yarr](services/yarr.md)
+- [Platform Overview](developers/index.md)
+- [Configuration](developers/homeserver.json.md)
+- [Development Workflow](developers/smb-development.md)
+- [Certificate Overview](certificates/index.md)
+- [Certificate Renewal](certificates/renewal.md)
+- [Installation & Troubleshooting](certificates/troubleshooting.md)
+- [DVD Ripping Guide](reference/dvd-ripping.md)

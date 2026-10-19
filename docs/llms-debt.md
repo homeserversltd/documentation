@@ -1,0 +1,25 @@
+# Navigation debt
+
+- **Basic SSH Commands** — `admin/basic-ssh-commands.md` — section: System Administration > Network Management
+- **Firewall Configuration** — `admin/firewall-config.md` — section: System Administration > Network Management
+- **Network Troubleshooting** — `admin/network-troubleshooting.md` — section: System Administration > Network Management
+- **VPN Setup** — `admin/vpn-setup.md` — section: System Administration > Network Management
+- **Drive Management** — `admin/drive-management.md` — section: System Administration > Storage & Drives
+- **NAS Configuration** — `admin/nas-config.md` — section: System Administration > Storage & Drives
+- **Backup Strategies** — `admin/backup-strategies.md` — section: System Administration > Storage & Drives
+- **Encryption Setup** — `admin/encryption-setup.md` — section: System Administration > Storage & Drives
+- **Updates & Upgrades** — `admin/updates-upgrades.md` — section: System Administration > System Maintenance
+- **Log Analysis** — `admin/log-analysis.md` — section: System Administration > System Maintenance
+- **Performance Monitoring** — `admin/performance-monitoring.md` — section: System Administration > System Maintenance
+- **Disaster Recovery** — `admin/disaster-recovery.md` — section: System Administration > System Maintenance
+- **API Reference** — `developers/api-reference.md` — section: Development
+- **Customization** — `developers/customization.md` — section: Development
+- **Security Best Practices** — `certificates/security-best-practices.md` — section: Security & Certificates
+- **Common Issues** — `troubleshooting/common-issues.md` — section: Troubleshooting
+- **Service-Specific Problems** — `troubleshooting/service-issues.md` — section: Troubleshooting
+- **Network Problems** — `troubleshooting/network-issues.md` — section: Troubleshooting
+- **Performance Issues** — `troubleshooting/performance-issues.md` — section: Troubleshooting
+- **Command Reference** — `reference/commands.md` — section: Reference
+- **Configuration Files** — `reference/config-files.md` — section: Reference
+- **Port Mappings** — `reference/ports.md` — section: Reference
+- **File Locations** — `reference/file-locations.md` — section: Reference

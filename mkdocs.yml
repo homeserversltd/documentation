@@ -13,21 +13,7 @@ nav:
           - System Verification: setup/setup-verification.md
           - Ongoing Management: setup/setup-management.md
       - Network Management:
-          - Basic SSH Commands: admin/basic-ssh-commands.md
-          - Firewall Configuration: admin/firewall-config.md
-          - Network Troubleshooting: admin/network-troubleshooting.md
-          - VPN Setup: admin/vpn-setup.md
           - Printer Setup: admin/printer-setup.md
-      - Storage & Drives:
-          - Drive Management: admin/drive-management.md
-          - NAS Configuration: admin/nas-config.md
-          - Backup Strategies: admin/backup-strategies.md
-          - Encryption Setup: admin/encryption-setup.md
-      - System Maintenance:
-          - Updates & Upgrades: admin/updates-upgrades.md
-          - Log Analysis: admin/log-analysis.md
-          - Performance Monitoring: admin/performance-monitoring.md
-          - Disaster Recovery: admin/disaster-recovery.md
   - Service Documentation:
       - Media Services:
           - Jellyfin: services/jellyfin.md
@@ -46,24 +32,12 @@ nav:
       - Platform Overview: developers/index.md
       - Configuration: developers/homeserver.json.md
       - Development Workflow: developers/smb-development.md
-      - API Reference: developers/api-reference.md
-      - Customization: developers/customization.md
   - Security & Certificates:
       - Certificate Overview: certificates/index.md
       - Certificate Renewal: certificates/renewal.md
       - Installation & Troubleshooting: certificates/troubleshooting.md
-      - Security Best Practices: certificates/security-best-practices.md
-  - Troubleshooting:
-      - Common Issues: troubleshooting/common-issues.md
-      - Service-Specific Problems: troubleshooting/service-issues.md
-      - Network Problems: troubleshooting/network-issues.md
-      - Performance Issues: troubleshooting/performance-issues.md
   - Reference:
       - DVD Ripping Guide: reference/dvd-ripping.md
-      - Command Reference: reference/commands.md
-      - Configuration Files: reference/config-files.md
-      - Port Mappings: reference/ports.md
-      - File Locations: reference/file-locations.md
 theme:
   name: material
   palette:

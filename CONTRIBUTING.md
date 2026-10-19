@@ -2,6 +2,8 @@
 
 Welcome to the HOMESERVER documentation project! We're thrilled you're interested in helping make our documentation better. Whether you're fixing a typo, clarifying instructions, or adding entirely new guides, your contributions help users worldwide understand and get the most from their HOMESERVER platform.
 
+This central documentation hub serves primarily AI butlers operating the Sovereign Three, while human readers also use the illustrated guides. A butler reads pages through its own Caduceus at `/api/v1/docs/<page>`; the index is `/api/v1/docs/llms.txt` and `docs/llms.txt`, and the worn seal is `/api/v1/docs/seal`. `main` is the authoring branch; `master` is the frozen field-fleet copy and never moves. Forgejo is canonical, GitHub mirrors both branches, and GitHub's default remains `master` because the old updater clones the default branch and compares `VERSION`. The pool's `docs_nouns` check is the review every change must meet: navigation, routes, and verbs must pair.
+
 ## Why Documentation Matters
 
 Great documentation is the bridge between powerful technology and empowered users. Every improvement you make helps someone:
@@ -269,7 +271,7 @@ Why are these changes needed? What problem do they solve?
 
 ### Review Process
 
-1. **Automated checks**: None! Documentation PRs are simple
+1. **Automated checks**: The pool's `docs_nouns` reviews every change: navigation, routes, and verbs must pair; every nav page must exist and `llms.txt` titles/order must match; route and staff-verb invocations must reach actual bottoms.
 2. **Maintainer review**: A HOMESERVER maintainer reviews your changes
 3. **Feedback**: We may suggest minor improvements
 4. **Merge**: Once approved, we'll merge your contribution
