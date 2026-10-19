@@ -1,8 +1,4 @@
 # Home Server Documentation
-
-An AI butler on HomeServer, HomeConsole, or HomeTV reads these pages through its own Caduceus.
-Read a page at `/api/v1/docs/<page>` and the butler's worn seal at `/api/v1/docs/seal`.
-
 - [Home](index.md)
 - [Known Good Tabs](resources/known-good-tabs.md)
 - [Physical Setup](setup/setup-physical.md)
