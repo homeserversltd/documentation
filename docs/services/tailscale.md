@@ -58,6 +58,30 @@
 - **No VPN Client Needed for Local Access:**
   - On your home network, continue using the standard URLs (e.g., `https://jellyfin.home.arpa`).
 
+### Use your home names everywhere (split DNS)
+
+Set this up once, and the same addresses you use at home also work on your phone or laptop away from home. For example, household chat stays at `https://agora.home.arpa` wherever you are.
+
+Your HomeServer answers every `home.arpa` name at `192.168.123.1`. Away from home, your devices need two things: a way to reach that address, and an instruction to ask it about `home.arpa` names. You set both in the [Tailscale admin console](https://login.tailscale.com/admin).
+
+1. **Share your home network with your tailnet.**
+   - Open **Machines**, open the **⋯** menu on your HomeServer, and choose **Edit route settings**.
+   - Turn on **192.168.123.0/24** and save.
+   - If that route is not listed, your HomeServer is not offering it yet. On the HomeServer, run `sudo tailscale set --advertise-routes=192.168.123.0/24`, then come back to this step.
+2. **Send `home.arpa` names to your HomeServer.**
+   - Open **DNS**, find **Nameservers**, and choose **Add nameserver → Custom**.
+   - Enter `192.168.123.1`.
+   - Turn on **Restrict to domain** (split DNS) and enter `home.arpa`.
+   - Save. Every other name keeps resolving the way it does today.
+3. **Check your devices.**
+   - Phone or tablet: in the Tailscale app, keep **Use Tailscale DNS** turned on.
+   - Linux laptop: run `sudo tailscale set --accept-routes --accept-dns`.
+   - Your device must trust your HomeServer's certificate, the same as at home (see [Certificates](../certificates/)).
+4. **Try it away from home.** Turn off Wi-Fi so your phone is on mobile data, connect Tailscale, and open `https://agora.home.arpa`.
+
+!!! tip "One address everywhere"
+    With split DNS on, use the `home.arpa` addresses everywhere. You don't need to remember a separate Tailscale address for household chat.
+
 ---
 
 ## 3. Using Tailscale
@@ -117,6 +141,10 @@ These features are powered by HomeServer's advanced backend integration with Tai
 - **Can't connect remotely?**
   - Make sure your device is connected to Tailscale and logged into the correct account.
   - Check that the Tailscale service is running on your HomeServer.
+- **A `home.arpa` address works at home but not away?**
+  - Check that the split DNS nameserver `192.168.123.1` for `home.arpa` is saved in the Tailscale admin console (section 2).
+  - Check that the route `192.168.123.0/24` is turned on for your HomeServer under **Machines → Edit route settings**.
+  - Check that **Use Tailscale DNS** is on in the Tailscale app.
 - **Service not appearing?**
   - Confirm the service is running and included in your HomeServer portals.
 - **Check logs:**
