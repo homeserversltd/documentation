@@ -22,6 +22,7 @@ nav:
       - Productivity:
           - Vaultwarden: services/vaultwarden.md
           - Gogs: services/gogs.md
+          - "Thyrsus: commit with your assistant": services/thyrsus.md
           - File Browser: services/filebrowser.md
           - Calibre Web: services/calibreweb.md
       - Network Services:

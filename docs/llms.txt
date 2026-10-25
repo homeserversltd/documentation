@@ -13,6 +13,7 @@
 - [Piwigo](services/piwigo.md)
 - [Vaultwarden](services/vaultwarden.md)
 - [Gogs](services/gogs.md)
+- [Thyrsus: commit with your assistant](services/thyrsus.md)
 - [File Browser](services/filebrowser.md)
 - [Calibre Web](services/calibreweb.md)
 - [Tailscale](services/tailscale.md)
