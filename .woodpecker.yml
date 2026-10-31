@@ -124,9 +124,37 @@ steps:
         export GIT_CONFIG_COUNT=1
         export GIT_CONFIG_VALUE_0='!f() { if [ "$${1}" = get ]; then printf "username=x-token\npassword=%s\n" "$${FORGEJO_TOKEN}"; fi; }; f'
 
-        git clone --no-checkout --depth 1 https://git.home.arpa/HOMESERVERSLTD/wukong-staff.git wukong-staff
-        git -C wukong-staff fetch --depth 1 origin "$${WUKONG_STAFF_SHA}"
-        git -C wukong-staff checkout --detach "$${WUKONG_STAFF_SHA}"
+        budget=300
+        delay=5
+        if [ "$${WUKONG_BOOTSTRAP_PROOF:-}" = 1 ]; then
+          budget=4
+          delay=1
+        fi
+        deadline=$(($(date +%s) + budget))
+        run_git() {
+          remaining=$((deadline - $(date +%s)))
+          [ "$${remaining}" -gt 0 ] || return 124
+          timeout "$${remaining}" git "$${@}"
+        }
+        while :; do
+          if git_error="$( { run_git clone --no-checkout --depth 1 https://git.home.arpa/HOMESERVERSLTD/wukong-staff.git wukong-staff &&
+            run_git -C wukong-staff fetch --depth 1 origin "$${WUKONG_STAFF_SHA}" &&
+            run_git -C wukong-staff checkout --detach "$${WUKONG_STAFF_SHA}"; } 2>&1)"; then
+            break
+          else
+            status=$?
+          fi
+          rm -rf wukong-staff
+          remaining=$((deadline - $(date +%s)))
+          if [ "$${remaining}" -le "$${delay}" ]; then
+            [ "$${remaining}" -le 0 ] || sleep "$${remaining}"
+            printf '%s\n' "$${git_error}" >&2
+            exit "$${status}"
+          fi
+          sleep "$${delay}"
+          [ "$${delay}" -ge 30 ] || delay=$((delay * 2))
+          [ "$${delay}" -le 30 ] || delay=30
+        done
         actual_sha="$(git -C wukong-staff rev-parse HEAD)"
         if [ "$${actual_sha}" != "$${WUKONG_STAFF_SHA}" ]; then
           printf '%s\n' "pool-publish-documentation: checked-out staff SHA does not match pin" >&2
