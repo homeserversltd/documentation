@@ -7,7 +7,7 @@ Build your own tab as a Rust cartridge in the HomeServer's look; the HomeServer 
 
 ## Make your cartridge
 
-In [Forgejo](https://git.home.arpa), create a repository named `cartridge-<id>` under your account. Start with a copy of the `cartridge-hello-world` example and its `xenia-kit` guide; copy the example files into your repository, keeping its `main` branch. The example and kit must be supplied or made reachable first; they are not automatically present on your HomeServer. Change the id, display name, paths, crate and binary name to match your tab, and set `source.release_repo` in `cartridge.json` to your Forgejo account and repository, such as `yourname/cartridge-garden`. Set `source.ref` to `main`.
+In [Forgejo](https://git.home.arpa), create an empty repository named `cartridge-<id>` under your account. Start with a copy of the `cartridge-hello-world` example and its `xenia-kit` guide; copy the example files into your repository, keeping its `main` branch. The example and kit must be supplied or made reachable first; they are not automatically present on your HomeServer. Change the id, display name, paths, crate and binary name to match your tab, and set `source.release_repo` in `cartridge.json` to your Forgejo account and repository, such as `yourname/cartridge-garden`. Set `source.ref` to `main`.
 
 The example has `cartridge.json`, `Cargo.toml`, `Cargo.lock`, `build.rs`, and `src/main.rs`, `src/fragment.rs`, and `src/health.rs`. It also has optional `src/events.rs` and `static/pack.css`. Keep `build.rs` and the source SHA in health: they identify the running build. Commit the lockfile. Use a reachable xenia-kit dependency in `Cargo.toml`, and update `Cargo.lock` if you change it.
 
@@ -15,7 +15,7 @@ The example has `cartridge.json`, `Cargo.toml`, `Cargo.lock`, `build.rs`, and `s
 
 **Coming in stage B:** Woodpecker on a sold HomeServer. Until that stage is installed, the automation below cannot run there.
 
-Open [Woodpecker](https://ci.home.arpa) from your service links, sign in with Forgejo, and activate your cartridge repository. In Forgejo, open **Settings → Applications**, create an access token with repository write permission for Releases, and copy it once. In that Woodpecker repository's **Secrets**, add `FORGEJO_TOKEN` with that value; do not put the token in the repository or chat. Only activate repositories and changes you trust: the local runner executes their commands on the HomeServer as its own user, without container isolation.
+Open [Woodpecker](https://ci.home.arpa) from your service links, sign in with Forgejo, and activate your cartridge repository. In Forgejo, open **Settings → Applications**, create an access token with repository write permission for Releases and read access to any private kit repository, and copy it once. In that Woodpecker repository's **Secrets**, add `FORGEJO_TOKEN` with that value; do not put the token in the repository or chat. Only activate repositories and changes you trust: the local runner executes their commands on the HomeServer as its own user, without container isolation.
 
 ## Add the pipeline
 
@@ -38,6 +38,10 @@ steps:
         export RUSTUP_HOME="$PWD/.cache/rustup"
         export CARGO_HOME="$PWD/.cache/cargo"
         export PATH="$CARGO_HOME/bin:$PATH"
+        export CARGO_NET_GIT_FETCH_WITH_CLI=true
+        export GIT_CONFIG_COUNT=1
+        export GIT_CONFIG_KEY_0=credential.https://git.home.arpa.helper
+        export GIT_CONFIG_VALUE_0='!f() { if [ "$1" = get ]; then printf "username=x-token\npassword=%s\n" "$FORGEJO_TOKEN"; fi; }; f'
         if [ "$(uname -m)" != x86_64 ]; then
           printf '%s\n' 'This pipeline needs an x86_64 runner' >&2
           exit 1
@@ -70,7 +74,7 @@ steps:
         binary = pathlib.Path('target/release', repo).read_bytes()
         digest = hashlib.sha256(binary).hexdigest()
         manifest = json.loads(pathlib.Path('cartridge.json').read_text())
-        manifest['source'] = {'release_repo': owner + '/' + repo, 'ref': 'main'}
+        manifest['source'].update({'release_repo': owner + '/' + repo, 'ref': 'main'})
         manifest['content_inventory_digest'] = digest
         flag = {'schema': 'estate.release-flag.v1', 'component': repo,
                 'source_sha': sha, 'sha256': digest,
@@ -109,4 +113,4 @@ Each push to `main` builds with its full commit SHA and makes a Release tagged w
 
 ## Admit once
 
-**Coming in stage D:** admitting a cartridge with `ref: main`, so the tab can follow new Releases. After stages B and D are available, wait for the first successful Woodpecker run, then use Coronatio admin's Xenia admit with the Release's stamped `cartridge.json` and `ref: main`. After admission, each requested push produces a new Release; the next update picks it up. A failed run or update needs attention rather than being assumed successful.
+**Coming in stage D:** admitting a cartridge with `ref: main`, so the tab can follow new Releases. Today the admit check looks for a Release tagged `main`, while this pipeline uses commit-SHA tags; do not try this admission until stage D supports following `main` to its SHA-tagged Release. After stages B and D are available, wait for the first successful Woodpecker run, then use Coronatio admin's Xenia admit with the Release's stamped `cartridge.json` and `ref: main`. After admission, each requested push produces a new Release; the next update picks it up. A failed run or update needs attention rather than being assumed successful.
