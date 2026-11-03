@@ -7,15 +7,13 @@ Build your own tab as a Rust cartridge in the HomeServer's look; the HomeServer 
 
 ## Make your cartridge
 
-In [Forgejo](https://git.home.arpa), create an empty repository named `cartridge-<id>` under your account. Start with a copy of the `cartridge-hello-world` example and its `xenia-kit` guide; copy the example files into your repository, keeping its `main` branch. The example and kit must be supplied or made reachable first; they are not automatically present on your HomeServer. Change the id, display name, paths, crate and binary name to match your tab, and set `source.release_repo` in `cartridge.json` to your Forgejo account and repository, such as `yourname/cartridge-garden`. Set `source.ref` to `main`.
+Start with the [ready-to-copy hello-world tab](https://github.com/homeserversltd/xenia-hello-world-example). Copy it into [Forgejo](https://git.home.arpa) under your account as `cartridge-<id>`, keeping its `main` branch. Change the id, display name, paths, crate and binary name to match your tab, and set `source.release_repo` in `cartridge.json` to your Forgejo account and repository, such as `yourname/cartridge-garden`. Set `source.ref` to `main`.
 
-The example has `cartridge.json`, `Cargo.toml`, `Cargo.lock`, `build.rs`, and `src/main.rs`, `src/fragment.rs`, and `src/health.rs`. It also has optional `src/events.rs` and `static/pack.css`. Keep `build.rs` and the source SHA in health: they identify the running build. Commit the lockfile. Use a reachable xenia-kit dependency in `Cargo.toml`, and update `Cargo.lock` if you change it.
+Use the public [xenia-kit](https://github.com/homeserversltd/xenia-kit) dependency in `Cargo.toml`. Commit `Cargo.lock` and update it if you change the dependency.
 
 ## Turn on automation
 
-**Coming in stage B:** Woodpecker on a sold HomeServer. Until that stage is installed, the automation below cannot run there.
-
-Open [Woodpecker](https://ci.home.arpa) from your service links, sign in with Forgejo, and activate your cartridge repository. In Forgejo, open **Settings → Applications**, create an access token with repository write permission for Releases and read access to any private kit repository, and copy it once. In that Woodpecker repository's **Secrets**, add `FORGEJO_TOKEN` with that value; do not put the token in the repository or chat. Only activate repositories and changes you trust: the local runner executes their commands on the HomeServer as its own user, without container isolation.
+New HomeServers come with Woodpecker. Open [Woodpecker](https://ci.home.arpa) from your service links, sign in with Forgejo, and activate your cartridge repository. In Forgejo, open **Settings → Applications**, create an access token with repository write permission for Releases, and copy it once. In that Woodpecker repository's **Secrets**, add `FORGEJO_TOKEN` with that value; do not put the token in the repository or chat. Only activate repositories and changes you trust: the local runner executes their commands on the HomeServer as its own user, without container isolation.
 
 ## Add the pipeline
 
@@ -113,4 +111,4 @@ Each push to `main` builds with its full commit SHA and makes a Release tagged w
 
 ## Admit once
 
-**Coming in stage D:** admitting a cartridge with `ref: main`, so the tab can follow new Releases. Today the admit check looks for a Release tagged `main`, while this pipeline uses commit-SHA tags; do not try this admission until stage D supports following `main` to its SHA-tagged Release. After stages B and D are available, wait for the first successful Woodpecker run, then use Coronatio admin's Xenia admit with the Release's stamped `cartridge.json` and `ref: main`. After admission, each requested push produces a new Release; the next update picks it up. A failed run or update needs attention rather than being assumed successful.
+Wait for the first successful Woodpecker run, then use Coronatio admin's Xenia admit with the Release's stamped `cartridge.json` and `ref: main`. Admitting with `main` makes the tab follow new Releases: after each requested push produces a Release, the next update picks it up. A failed run or update needs attention rather than being assumed successful.
