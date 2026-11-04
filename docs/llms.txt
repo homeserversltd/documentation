@@ -14,6 +14,7 @@
 - [Vaultwarden](services/vaultwarden.md)
 - [Gogs](services/gogs.md)
 - [Thyrsus: commit with your assistant](services/thyrsus.md)
+- [Your own tab](services/your-own-tab.md)
 - [File Browser](services/filebrowser.md)
 - [Calibre Web](services/calibreweb.md)
 - [Tailscale](services/tailscale.md)

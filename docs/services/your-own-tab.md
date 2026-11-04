@@ -2,20 +2,18 @@
 
 Build your own tab as a Rust cartridge in the HomeServer's look; the HomeServer runs it for you. Or point a tab at a service you already run by giving its unit and port; you run that service and the HomeServer only displays it.
 
+Coming in an update: every HomeServer will come with the Test tab. It puts every xenia-kit part on one page and is the example you can copy to make your own tab. When the Test tab is present, healthy and up to date, it shows that the guest tab system is working.
+
+The update will add the Test tab at first boot and let your HomeServer use our public GitHub build until you set up your own. For first-time setup, open [Woodpecker](https://ci.home.arpa), sign in with your Forgejo account and activate `cartridge-test`. Your HomeServer will then build its own Test tab. You will still receive our Test tab updates either way.
+
 !!! note "For the assistant"
     Show the person the Woodpecker run and the tab. Push to `main` only when the person asked for that change.
 
-## Make your cartridge
-
-Start with the [ready-to-copy hello-world tab](https://github.com/homeserversltd/xenia-hello-world-example). Copy it into [Forgejo](https://git.home.arpa) under your account as `cartridge-<id>`, keeping its `main` branch. Change the id, display name, paths, crate and binary name to match your tab, and set `source.release_repo` in `cartridge.json` to your Forgejo account and repository, such as `yourname/cartridge-garden`. Set `source.ref` to `main`.
+Start with the [ready-to-copy Test tab](https://github.com/homeserversltd/xenia-hello-world-example). Copy it into [Forgejo](https://git.home.arpa) under your account as `cartridge-<id>`, keeping its `main` branch. Change the id, display name, paths, crate and binary name to match your tab, and set `source.release_repo` in `cartridge.json` to your Forgejo account and repository, such as `yourname/cartridge-garden`. Set `source.ref` to `main`.
 
 Use the public [xenia-kit](https://github.com/homeserversltd/xenia-kit) dependency in `Cargo.toml`. Commit `Cargo.lock` and update it if you change the dependency.
 
-## Turn on automation
-
 New HomeServers come with Woodpecker. Open [Woodpecker](https://ci.home.arpa) from your service links, sign in with Forgejo, and activate your cartridge repository. In Forgejo, open **Settings → Applications**, create an access token with repository write permission for Releases, and copy it once. In that Woodpecker repository's **Secrets**, add `FORGEJO_TOKEN` with that value; do not put the token in the repository or chat. Only activate repositories and changes you trust: the local runner executes their commands on the HomeServer as its own user, without container isolation.
-
-## Add the pipeline
 
 Save this as `.woodpecker.yml` at the repository root. It expects the binary's Cargo package name to equal the repository name, a trusted connection to `git.home.arpa`, and `bash`, `curl`, `python3`, `git`, a C compiler and standard build tools on the runner. The runner fetches Rust without root into a workspace cache when missing; Woodpecker may use a fresh workspace for each run. The xenia-kit dependency and Rust packages must be reachable from the runner.
 
@@ -92,7 +90,7 @@ steps:
             req = urllib.request.Request(url, data=data, headers=headers, method=method)
             with urllib.request.build_opener(SameForge()).open(req, timeout=180) as response:
                 return json.loads(response.read())
-        release = request('POST', api, encoded({'tag_name': sha, 'name': repo + ' ' + sha[:8],
+        release = request('POST', api, encoded({'tag_name': 'sha-' + sha, 'name': repo + ' ' + sha[:8],
                           'target_commitish': sha, 'draft': True, 'prerelease': False}),
                           'application/json')
         assets = {binary_name: binary,
@@ -107,8 +105,6 @@ steps:
         PY
 ```
 
-Each push to `main` builds with its full commit SHA and makes a Release tagged with that bare SHA. Its target commit is the same SHA. It carries `cartridge-<id>-x86_64`, that file's `.sha256` sidecar, a stamped `cartridge.json`, and `release.flag`; the digest in all three evidence files is the binary's SHA-256. The Release stays a draft until all assets upload. If a run fails after creating a draft, inspect it in Forgejo before retrying; do not silently replace a Release for the same SHA.
-
-## Admit once
+Each push to `main` builds with its full commit SHA and makes a Release tagged `sha-<sha>`. Its target commit is the same SHA. It carries `cartridge-<id>-x86_64`, that file's `.sha256` sidecar, a stamped `cartridge.json`, and `release.flag`; the digest in all three evidence files is the binary's SHA-256. The Release stays a draft until all assets upload. If a run fails after creating a draft, inspect it in Forgejo before retrying; do not silently replace a Release for the same SHA.
 
 Wait for the first successful Woodpecker run, then use Coronatio admin's Xenia admit with the Release's stamped `cartridge.json` and `ref: main`. Admitting with `main` makes the tab follow new Releases: after each requested push produces a Release, the next update picks it up. A failed run or update needs attention rather than being assumed successful.
