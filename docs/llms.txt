@@ -26,4 +26,5 @@
 - [Certificate Overview](certificates/index.md)
 - [Certificate Renewal](certificates/renewal.md)
 - [Installation & Troubleshooting](certificates/troubleshooting.md)
+- [Security Best Practices](certificates/security-best-practices.md)
 - [DVD Ripping Guide](reference/dvd-ripping.md)

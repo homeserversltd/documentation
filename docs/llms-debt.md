@@ -14,7 +14,6 @@
 - **Disaster Recovery** — `admin/disaster-recovery.md` — section: System Administration > System Maintenance
 - **API Reference** — `developers/api-reference.md` — section: Development
 - **Customization** — `developers/customization.md` — section: Development
-- **Security Best Practices** — `certificates/security-best-practices.md` — section: Security & Certificates
 - **Common Issues** — `troubleshooting/common-issues.md` — section: Troubleshooting
 - **Service-Specific Problems** — `troubleshooting/service-issues.md` — section: Troubleshooting
 - **Network Problems** — `troubleshooting/network-issues.md` — section: Troubleshooting
