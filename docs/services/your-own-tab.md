@@ -7,13 +7,25 @@ Coming in an update: every HomeServer will come with the Test tab. It puts every
 The update will add the Test tab at first boot and let your HomeServer use our public GitHub build until you set up your own. For first-time setup, open [Woodpecker](https://ci.home.arpa), sign in with your Forgejo account and activate `cartridge-test`. Your HomeServer will then build its own Test tab. You will still receive our Test tab updates either way.
 
 !!! note "For the assistant"
-    Show the person the Woodpecker run and the tab. Push to `main` only when the person asked for that change.
+    Show the person the Woodpecker run and the tab. Push to `main` only when the person asked for that change. Before you suggest a change to a tab, read every request it answers against "Keep your tab light" below; if a request writes to disk, or the tab makes a test file anywhere, tell the person and fix that first.
 
 ## Make your cartridge
 
 Start with the [ready-to-copy Test tab](https://github.com/homeserversltd/xenia-hello-world-example). Copy it into [Forgejo](https://git.home.arpa) under your account as `cartridge-<id>`, keeping its `main` branch. Change the id, display name, paths, crate and binary name to match your tab, and set `source.release_repo` in `cartridge.json` to your Forgejo account and repository, such as `yourname/cartridge-garden`. Set `source.ref` to `main`.
 
 Use the public [xenia-kit](https://github.com/homeserversltd/xenia-kit) dependency in `Cargo.toml`. Commit `Cargo.lock` and update it if you change the dependency.
+
+## Keep your tab light
+
+Your HomeServer asks your tab for its health and redraws it often, so every request costs something each time. Build it around three costs: what it reads, what it writes, and what it keeps in memory. Making one of them smaller usually makes another bigger. Choose which costs you will pay, and write that down in your README under a `RUM` heading (read, update, memory), one line for each request your tab answers.
+
+- **A question writes nothing.** `/health`, `/fragment`, `/events` and every page view only read. Answer them from memory or from a quick read, never by writing a file.
+- **Never write a test file to check whether you can write.** Don't create and delete a file on a drive just to see if it works. When your tab really saves something, that save tells you whether the drive is writable: if it fails, report it by name on that job, remember the result, and show it in health. Until the first real save, show it as unknown.
+- **Leave the owner's data drives alone.** Put your tab's own settings, logs and job lists in its own state folder. A data drive such as `/mnt/nas` gets only the files the owner asked for, like a downloaded video, and nothing else. Even an empty file changes the drive and can wake it.
+- **Save only what changed.** Write the smallest file that holds the change, and don't rewrite everything for one setting.
+- **Read only what the answer needs.** Don't scan a whole folder or file to answer about one item.
+- **Put a limit on everything kept in memory.** Every cache, list or queue gets a maximum size and drops old entries.
+- **Let timers sleep until they are due.** A daily job waits for its time instead of waking every few seconds to check the clock.
 
 ## Turn on automation
 
