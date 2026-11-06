@@ -7,11 +7,13 @@ Coming in an update: every HomeServer will come with the Test tab. It puts every
 The update will add the Test tab at first boot and let your HomeServer use our public GitHub build until you set up your own. For first-time setup, open [Woodpecker](https://ci.home.arpa), sign in with your Forgejo account and activate `cartridge-test`. Your HomeServer will then build its own Test tab. You will still receive our Test tab updates either way.
 
 !!! note "For the assistant"
-    Show the person the Woodpecker run and the tab. Push to `main` only when the person asked for that change. Before you suggest a change to a tab, read every request it answers against "Keep your tab light" below; if a request writes to disk, or the tab makes a test file anywhere, tell the person and fix that first.
+    Show the person the Woodpecker run and the tab. Push to `main` only when the person asked for that change. Before you suggest a change to a tab, read every request it answers against "Keep your tab light" below; if a request writes to disk, or the tab makes a test file anywhere, tell the person and fix that first. When the person asks for a new tab, make its repository with `sudo /usr/local/sbin/agathodaimon/cli.py thyrsus new-tab <id> --into <folder>`. If `ok` is not true, stop with `firstMissingSignal`. Otherwise show the person `repo_url` and the two steps in `next`, then build their tab in the new folder and use Thyrsus `propose` for each change.
 
 ## Make your cartridge
 
-Start with the [ready-to-copy Test tab](https://github.com/homeserversltd/xenia-hello-world-example). Copy it into [Forgejo](https://git.home.arpa) under your account as `cartridge-<id>`, keeping its `main` branch. Change the id, display name, paths, crate and binary name to match your tab, and set `source.release_repo` in `cartridge.json` to your Forgejo account and repository, such as `yourname/cartridge-garden`. Set `source.ref` to `main`.
+Your assistant can make the repository for you. Ask it for a new tab and give the tab a short name, such as `garden`. It creates `cartridge-garden` in your [Forgejo](https://git.home.arpa), copies the Test tab into it with your tab's name filled in, and pushes `main`. On a HomeServer this works as it comes. On a HomeSI, first put your HomeServer's Forgejo token in place as [Thyrsus](thyrsus.md) describes. Then do the two steps it shows you: activate the repository in Woodpecker and add `FORGEJO_TOKEN` to its secrets, as in "Turn on automation" below.
+
+To make it by hand instead: start with the [ready-to-copy Test tab](https://github.com/homeserversltd/xenia-hello-world-example). Copy it into [Forgejo](https://git.home.arpa) under your account as `cartridge-<id>`, keeping its `main` branch. Change the id, display name, paths, crate and binary name to match your tab, and set `source.release_repo` in `cartridge.json` to your Forgejo account and repository, such as `yourname/cartridge-garden`. Set `source.ref` to `main`.
 
 Use the public [xenia-kit](https://github.com/homeserversltd/xenia-kit) dependency in `Cargo.toml`. Commit `Cargo.lock` and update it if you change the dependency.
 
