@@ -98,6 +98,8 @@ steps:
                 'pipeline_url': os.environ['CI_PIPELINE_URL']}
         def encoded(value):
             return (json.dumps(value, indent=2) + '\n').encode()
+        pathlib.Path('.release').mkdir(exist_ok=True)
+        pathlib.Path('.release/cartridge.json').write_bytes(encoded(manifest))
         class SameForge(urllib.request.HTTPRedirectHandler):
             def redirect_request(self, req, fp, code, msg, headers, newurl):
                 target = urllib.parse.urlsplit(urllib.parse.urljoin(req.full_url, newurl))
@@ -123,10 +125,64 @@ steps:
         request('PATCH', release_url, encoded({'draft': False}), 'application/json')
         print('Release ready:', sha)
         PY
+
+  - name: admit-tab
+    image: python:3.13-bookworm
+    commands:
+      - |
+        python3 - <<'PY'
+        import errno
+        import json
+        import os
+        import pathlib
+        import socket
+        import urllib.error
+        import urllib.parse
+        import urllib.request
+
+        manifest = json.loads(pathlib.Path('.release/cartridge.json').read_text())
+        door = os.environ.get('XENIA_DOOR', 'http://127.0.0.1:3014').rstrip('/')
+        root = door + '/api/v1/xenia/'
+
+        def call(path, payload=None):
+            data = None if payload is None else json.dumps(payload).encode()
+            request = urllib.request.Request(root + path, data=data,
+                headers={'Content-Type': 'application/json'} if data else {})
+            try:
+                with urllib.request.urlopen(request, timeout=5) as response:
+                    result = json.load(response)
+            except urllib.error.HTTPError as error:
+                result = json.load(error)
+                if result.get('verdict') != 'refused':
+                    raise
+            if result.get('verdict') == 'refused':
+                raise SystemExit(f"{path} refused: {result.get('check')} {result.get('field')} {result.get('message')}")
+            return result
+
+        try:
+            status = call('status/' + urllib.parse.quote(manifest['id'], safe=''))
+        except (urllib.error.URLError, TimeoutError) as error:
+            reason = error.reason if isinstance(error, urllib.error.URLError) else error
+            if isinstance(reason, (TimeoutError, socket.timeout)) or getattr(reason, 'errno', None) == errno.ECONNREFUSED:
+                print('No HomeServer door here; skipping admit')
+                raise SystemExit(0)
+            raise
+        if 'entry' in status:
+            print('Tab already admitted')
+            raise SystemExit(0)
+        if status.get('runtime', {}).get('state') != 'entry-absent':
+            raise SystemExit('Status did not identify an absent tab')
+        row = {'displayName': manifest['display'], 'adminOnly': True, 'order': 100,
+               'visibility': {'tab': True, 'elements': {}}, 'data': {}}
+        payload = {'manifest': manifest, 'tabs': row}
+        call('validate', payload)
+        call('admit', payload)
+        print('Tab admitted:', manifest['id'])
+        PY
 ```
 
 Each push to `main` builds with its full commit SHA and makes a Release tagged `sha-<sha>`. Its target commit is the same SHA. It carries `cartridge-<id>-x86_64`, that file's `.sha256` sidecar, a stamped `cartridge.json`, and `release.flag`; the digest in all three evidence files is the binary's SHA-256. The Release stays a draft until all assets upload. If a run fails after creating a draft, inspect it in Forgejo before retrying; do not silently replace a Release for the same SHA.
 
-## Admit once
+## Your tab admits itself
 
-Wait for the first successful Woodpecker run, then use Coronatio admin's Xenia admit with the Release's stamped `cartridge.json` and `ref: main`. Admitting with `main` makes the tab follow new Releases: after each requested push produces a Release, the next update picks it up. A failed run or update needs attention rather than being assumed successful.
+The `admit-tab` step admits your tab the first time a Release is made on your HomeServer. It asks your HomeServer whether the tab is already there, and if not, admits it with the Release's stamped `cartridge.json` and `ref: main`. The tab starts as admin-only; widen who sees it in Coronatio. After that, each push to `main` makes a Release and the next update picks it up. A failed run or update needs attention rather than being assumed successful.
