@@ -7,7 +7,7 @@ Coming in an update: every HomeServer will come with the Test tab. It puts every
 The update will add the Test tab at first boot and let your HomeServer use our public GitHub build until you set up your own. For first-time setup, open [Woodpecker](https://ci.home.arpa), sign in with your Forgejo account and activate `cartridge-test`. Your HomeServer will then build its own Test tab. You will still receive our Test tab updates either way.
 
 !!! note "For the assistant"
-    Show the person the Woodpecker run and the tab. Push to `main` only when the person asked for that change. Before you suggest a change to a tab, read every request it answers against "Keep your tab light" below; if a request writes to disk, or the tab makes a test file anywhere, tell the person and fix that first. When the person asks for a new tab, make its repository with `sudo /usr/local/sbin/agathodaimon/cli.py thyrsus new-tab <id> --into <folder>`. If `ok` is not true, stop with `firstMissingSignal`. Otherwise show the person `repo_url` and the two steps in `next`, then build their tab in the new folder and use Thyrsus `propose` for each change.
+    Show the person the Woodpecker run and the tab. Push to `main` only when the person asked for that change. Before you suggest a change to a tab, read every request it answers against "Keep your tab light" below; if a request writes to disk, or the tab makes a test file anywhere, tell the person and fix that first. When the person asks for a new tab, make its repository with `sudo /usr/local/sbin/agathodaimon/cli.py thyrsus new-tab <id> --into <folder>`. If `ok` is not true, stop with `firstMissingSignal`. Otherwise show the person `repo_url` and the two steps in `next`, then build their tab in the new folder and use Thyrsus `propose` for each change. When its first Release is ready, tell the person to add it from their HomeServer's + → Make one; never admit a tab yourself.
 
 ## Make your cartridge
 
@@ -126,7 +126,7 @@ steps:
         print('Release ready:', sha)
         PY
 
-  - name: admit-tab
+  - name: ready-to-add
     image: python:3.13-bookworm
     commands:
       - |
@@ -142,47 +142,30 @@ steps:
 
         manifest = json.loads(pathlib.Path('.release/cartridge.json').read_text())
         door = os.environ.get('XENIA_DOOR', 'http://127.0.0.1:3014').rstrip('/')
-        root = door + '/api/v1/xenia/'
-
-        def call(path, payload=None):
-            data = None if payload is None else json.dumps(payload).encode()
-            request = urllib.request.Request(root + path, data=data,
-                headers={'Content-Type': 'application/json'} if data else {})
-            try:
-                with urllib.request.urlopen(request, timeout=5) as response:
-                    result = json.load(response)
-            except urllib.error.HTTPError as error:
-                result = json.load(error)
-                if result.get('verdict') != 'refused':
-                    raise
-            if result.get('verdict') == 'refused':
-                raise SystemExit(f"{path} refused: {result.get('check')} {result.get('field')} {result.get('message')}")
-            return result
-
+        url = door + '/api/v1/xenia/status/' + urllib.parse.quote(manifest['id'], safe='')
         try:
-            status = call('status/' + urllib.parse.quote(manifest['id'], safe=''))
+            with urllib.request.urlopen(url, timeout=5) as response:
+                status = json.load(response)
+        except urllib.error.HTTPError as error:
+            status = json.load(error)
         except (urllib.error.URLError, TimeoutError) as error:
             reason = error.reason if isinstance(error, urllib.error.URLError) else error
             if isinstance(reason, (TimeoutError, socket.timeout)) or getattr(reason, 'errno', None) == errno.ECONNREFUSED:
-                print('No HomeServer door here; skipping admit')
+                print('No HomeServer door here; nothing to add')
                 raise SystemExit(0)
             raise
         if 'entry' in status:
-            print('Tab already admitted')
+            print('Tab already added; the next update installs this Release')
             raise SystemExit(0)
         if status.get('runtime', {}).get('state') != 'entry-absent':
             raise SystemExit('Status did not identify an absent tab')
-        row = {'displayName': manifest['display'], 'adminOnly': True, 'order': 100,
-               'visibility': {'tab': True, 'elements': {}}, 'data': {}}
-        payload = {'manifest': manifest, 'tabs': row}
-        call('validate', payload)
-        call('admit', payload)
-        print('Tab admitted:', manifest['id'])
+        repo = os.environ.get('CI_REPO') or manifest['source']['release_repo']
+        print(f'Your tab is ready to add. On your HomeServer press +, choose Make one, and add {repo}.')
         PY
 ```
 
 Each push to `main` builds with its full commit SHA and makes a Release tagged `sha-<sha>`. Its target commit is the same SHA. It carries `cartridge-<id>-x86_64`, that file's `.sha256` sidecar, a stamped `cartridge.json`, and `release.flag`; the digest in all three evidence files is the binary's SHA-256. The Release stays a draft until all assets upload. If a run fails after creating a draft, inspect it in Forgejo before retrying; do not silently replace a Release for the same SHA.
 
-## Your tab admits itself
+## Add your tab
 
-The `admit-tab` step admits your tab the first time a Release is made on your HomeServer. It asks your HomeServer whether the tab is already there, and if not, admits it with the Release's stamped `cartridge.json` and `ref: main`. The tab starts as admin-only; widen who sees it in Coronatio. After that, each push to `main` makes a Release and the next update picks it up. A failed run or update needs attention rather than being assumed successful.
+When your first Release is ready, the pipeline's last step says so. Open your HomeServer, press +, choose Make one, and add your tab's repository (for example you/cartridge-weather). Your HomeServer checks it first and tells you plainly if anything needs fixing. You add each new tab once; after that every push to main makes a new Release and the next update installs it. A failed run or update needs attention rather than being assumed successful.
